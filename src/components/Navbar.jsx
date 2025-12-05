@@ -53,7 +53,7 @@ export default function Navbar() {
                     >
                         <div className="w-[3px] h-5 rounded-lg bg-primary-gradient ">
                         </div>
-                        <span className="text-lg ml-[-8px]">RA<span className="bg-gradient-to-r from-primary via-purple-600 to-pink-600 bg-clip-text text-transparent">K</span>IB</span>
+                        <span className="text-lg ml-[-8px]">RAKIB</span>
                     </a>
 
                     {/* Desktop links */}
