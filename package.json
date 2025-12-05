@@ -1,5 +1,6 @@
 {
-  "name": "portfolio",
+  "name": "rakibislam22.github.io",
+  "homepage": "https://rakibislam22.github.io/",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -7,11 +8,14 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "emailjs-com": "^3.2.0",
     "framer-motion": "^12.23.25",
+    "gh-pages": "^6.3.0",
     "gsap": "^3.13.0",
     "lucide-react": "^0.555.0",
     "react": "^19.2.0",
