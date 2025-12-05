@@ -94,31 +94,21 @@ export default function Projects() {
         }
     ];
 
-    // Animation Variants
     const containerVariant = {
         hidden: { opacity: 0 },
         show: {
             opacity: 1,
-            transition: {
-                staggerChildren: 0.15,
-            },
+            transition: { staggerChildren: 0.15 },
         },
     };
 
     const cardVariant = {
         hidden: { opacity: 0, y: 40, scale: 0.95 },
-        show: {
-            opacity: 1,
-            y: 0,
-            scale: 1,
-            transition: { duration: 0.5, ease: "easeOut" },
-        },
+        show: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.5, ease: "easeOut" } },
     };
 
     return (
         <section className="mb-24 lg:mb-32">
-
-            {/* HEADER */}
             <motion.div
                 id="projects"
                 initial={{ opacity: 0, y: 20 }}
@@ -146,7 +136,7 @@ export default function Projects() {
                     <motion.article
                         key={p.title}
                         variants={cardVariant}
-                        className="bg-card-light dark:bg-card-dark border border-card-light dark:border-card-dark p-6 rounded-2xl flex flex-col hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+                        className="bg-card border border-card p-6 rounded-2xl flex flex-col hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
                     >
                         <motion.div
                             className="relative mb-4"
@@ -181,7 +171,8 @@ export default function Projects() {
 
                         <div className="flex flex-wrap gap-2 mb-4">
                             {p.tags.map((t) => (
-                                <span key={t} className="bg-background-light dark:bg-background-dark text-xs font-semibold px-2 py-1 rounded">
+                                // use the new semantic tag class so dark and light both work
+                                <span key={t} className="tag text-xs font-semibold px-2 py-1 rounded text-surface">
                                     {t}
                                 </span>
                             ))}
@@ -191,6 +182,7 @@ export default function Projects() {
                             <a
                                 className="flex-1 flex items-center justify-center gap-2 bg-primary-gradient text-white font-semibold py-2.5 px-4 rounded-lg hover:opacity-90 transition-opacity"
                                 target="_blank"
+                                rel="noreferrer"
                                 href={p.live_link}
                             >
                                 <span className="material-symbols-outlined text-base">visibility</span>
@@ -198,19 +190,18 @@ export default function Projects() {
                             </a>
 
                             <a
-                                className="flex-1 flex items-center justify-center gap-2 bg-background-light dark:bg-background-dark border border-card-light dark:border-card-dark text-gray-900 dark:text-white font-semibold py-2.5 px-4 rounded-lg hover:bg-gray-200 dark:hover:bg-opacity-20 dark:hover:bg-white transition-colors"
+                                className="flex-1 flex items-center justify-center gap-2 bg-surface border border-card text-gray-900 dark:text-white font-semibold py-2.5 px-4 rounded-lg hover:bg-gray-200 dark:hover:bg-opacity-20 transition-colors"
                                 target="_blank"
+                                rel="noreferrer"
                                 href={p.repo_link}
                             >
                                 <span className="material-symbols-outlined text-base">code_blocks</span>
                                 Code
                             </a>
                         </div>
-
                     </motion.article>
                 ))}
             </motion.div>
-
         </section>
     );
 }

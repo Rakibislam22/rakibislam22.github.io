@@ -65,7 +65,7 @@ export default function Contact() {
             </motion.div>
 
             <motion.div
-                className="bg-card-light dark:bg-card-dark border border-card-light dark:border-card-dark p-8 rounded-2xl max-w-5xl mx-auto"
+                className="bg-card border border-card p-8 rounded-2xl max-w-5xl mx-auto"
                 initial={{ opacity: 0, y: 60 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7 }}
@@ -90,7 +90,7 @@ export default function Contact() {
                             <ContactRow icon={<MapPin className="text-primary" />} label="Location" value="Dhaka, Bangladesh" />
                         </div>
 
-                        <div className="mt-8 pt-6 border-t border-card-light dark:border-card-dark">
+                        <div className="mt-8 pt-6 border-t border-card">
                             <h4 className="text-center font-semibold text-gray-900 dark:text-white mb-4">
                                 Find me on
                             </h4>
@@ -121,7 +121,7 @@ export default function Contact() {
                                     Your Name
                                 </label>
                                 <input
-                                    className="mt-1 block w-full bg-background-light dark:bg-background-dark border-card-light dark:border-card-dark rounded-md shadow-sm focus:ring-primary focus:border-primary"
+                                    className="mt-1 block w-full bg-card border border-card rounded-md shadow-sm focus:ring-primary focus:border-primary text-surface placeholder-gray-400 dark:placeholder-gray-400 px-3 py-2"
                                     name="name"
                                     value={formData.name}
                                     onChange={handleChange}
@@ -136,7 +136,7 @@ export default function Contact() {
                                     Your Email
                                 </label>
                                 <input
-                                    className="mt-1 block w-full bg-background-light dark:bg-background-dark border-card-light dark:border-card-dark rounded-md shadow-sm focus:ring-primary focus:border-primary"
+                                    className="mt-1 block w-full bg-card border border-card rounded-md shadow-sm focus:ring-primary focus:border-primary text-surface placeholder-gray-400 dark:placeholder-gray-400 px-3 py-2"
                                     name="email"
                                     value={formData.email}
                                     onChange={handleChange}
@@ -151,7 +151,7 @@ export default function Contact() {
                                     Your Message
                                 </label>
                                 <textarea
-                                    className="mt-1 block w-full bg-background-light dark:bg-background-dark border-card-light dark:border-card-dark rounded-md shadow-sm focus:ring-primary focus:border-primary"
+                                    className="mt-1 block w-full bg-card border border-card rounded-md shadow-sm focus:ring-primary focus:border-primary text-surface placeholder-gray-400 dark:placeholder-gray-400 px-3 py-2"
                                     name="message"
                                     value={formData.message}
                                     onChange={handleChange}
@@ -197,7 +197,7 @@ function ContactRow({ icon, label, value }) {
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
         >
-            <div className="bg-background-light dark:bg-background-dark p-3 rounded-lg">
+            <div className="bg-card p-3 rounded-lg">
                 {icon}
             </div>
             <div>

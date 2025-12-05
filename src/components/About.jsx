@@ -21,9 +21,9 @@ const About = () => {
     };
 
     const achievements = [
-        { number: "5+", label: "Projects", icon: <Briefcase className="h-5 w-5" />, suffix: "" },
-        { number: "99", label: "Success", icon: <Target className="h-5 w-5" />, suffix: "%" },
-        { number: "10", label: "Clients", icon: <User className="h-5 w-5" />, suffix: "+" }
+        { number: "5+", label: "Projects", icon: <Briefcase className="h-5 w-5 text-primary" />, suffix: "" },
+        { number: "99", label: "Success", icon: <Target className="h-5 w-5 text-primary" />, suffix: "%" },
+        { number: "10", label: "Clients", icon: <User className="h-5 w-5 text-primary" />, suffix: "+" }
     ];
 
     const techStack = [
@@ -46,11 +46,13 @@ const About = () => {
 
     const tabContent = {
         personal:
-            "I’m a mindset-driven developer who enjoys building impactful digital experiences...",
+            "I’m a mindset-driven developer who enjoys building impactful digital experiences. Outside of coding, I actively explore emerging technologies, contribute to open-source communities, and help fellow learners grow in their tech journey.",
+
         professional:
-            "With hands-on experience in MERN-stack development...",
+            "With hands-on experience in MERN-stack development, I've built and deployed multiple full-stack applications using modern frameworks. My strengths include crafting scalable architectures, optimizing performance, and developing clean, maintainable solutions.",
+
         approach:
-            "I follow a clean-code philosophy grounded in clarity and collaboration..."
+            "I follow a clean-code philosophy grounded in clarity, testing, and user-focused design. My workflow embraces collaboration, agile practices, and continuous iteration to deliver reliable and high-quality software."
     };
 
     useEffect(() => {
@@ -118,7 +120,7 @@ const About = () => {
                             initial="hidden"
                             whileInView="visible"
                             viewport={{ once: true, amount: 0.2 }}
-                            className="bg-card/50 border border-border rounded-3xl p-8 backdrop-blur-xl shadow-2xl"
+                            className="bg-card border border-border rounded-3xl p-8 backdrop-blur-xl shadow-2xl"
                         >
 
                             <div className="flex flex-col md:flex-row items-center gap-8">
@@ -133,13 +135,13 @@ const About = () => {
 
                                 {/* Achievements */}
                                 <div className="flex-1 text-center md:text-left">
-                                    <h2 className="text-3xl font-bold">Md Rakib Ali</h2>
+                                    <h2 className="text-3xl font-bold text-surface">Md Rakib Ali</h2>
                                     <p className="text-primary text-lg font-semibold mb-4">MERN Stack Developer</p>
 
                                     <div className="grid grid-cols-2 gap-4">
                                         {achievements.map((a, i) => (
                                             <div key={i}
-                                                className={`p-3 rounded-xl border bg-background/50 transition 
+                                                className={`p-3 rounded-xl border bg-card transition 
                                                 ${counter === i ? "bg-primary/10 border-primary/50" : "border-border"}`}>
                                                 <div className="flex items-center gap-3">
                                                     {a.icon}
@@ -168,7 +170,7 @@ const About = () => {
                             </div>
 
                             {/* Switch Animation */}
-                            <div className="mt-6 min-h-[120px] relative">
+                            <div className="mt-6 min-h-[140px] relative">
                                 <AnimatePresence mode="wait">
                                     <motion.div
                                         key={activeTab}
@@ -176,7 +178,7 @@ const About = () => {
                                         animate={{ opacity: 1, y: 0, scale: 1 }}
                                         exit={{ opacity: 0, y: -12, scale: 0.98 }}
                                         transition={{ duration: 0.35, ease: "easeOut" }}
-                                        className="absolute inset-0"
+                                        className="sm:absolute inset-0"
                                     >
                                         <p className="text-lg text-muted-foreground leading-relaxed">
                                             {tabContent[activeTab]}
@@ -193,7 +195,7 @@ const About = () => {
                             initial="hidden"
                             whileInView="visible"
                             viewport={{ once: true, amount: 0.2 }}
-                            className="bg-card/50 border border-border rounded-3xl p-8 backdrop-blur-xl shadow-2xl"
+                            className="bg-card border border-border rounded-3xl p-8 backdrop-blur-xl shadow-2xl"
                         >
                             <h3 className="text-2xl font-bold mb-6 flex items-center gap-3">
                                 <Code className="h-6 w-6 text-primary" /> Tech Stack Overview
@@ -201,8 +203,8 @@ const About = () => {
 
                             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                                 {techStack.map((stack, i) => (
-                                    <div key={i} className="p-6 rounded-2xl border bg-background/50 hover:border-primary/30 transition">
-                                        <h4 className="font-semibold text-lg mb-4">{stack.category}</h4>
+                                    <div key={i} className="p-6 rounded-2xl border bg-card hover:border-primary/30 transition">
+                                        <h4 className="font-semibold text-lg mb-4 text-surface">{stack.category}</h4>
                                         <div className="space-y-2">
                                             {stack.items.map((item, idx) => (
                                                 <p key={idx} className="text-sm text-muted-foreground hover:text-foreground flex items-center gap-2">
@@ -227,9 +229,9 @@ const About = () => {
                             initial="hidden"
                             whileInView="visible"
                             viewport={{ once: true, amount: 0.2 }}
-                            className="bg-card/50 border border-border rounded-3xl p-8 backdrop-blur-xl shadow-2xl"
+                            className="bg-card border border-border rounded-3xl p-8 backdrop-blur-xl shadow-2xl"
                         >
-                            <h3 className="text-2xl font-bold mb-6 text-center">Let's Work Together</h3>
+                            <h3 className="text-2xl font-bold mb-6 text-center text-surface">Let's Work Together</h3>
 
                             <div className="flex flex-col sm:flex-row gap-4">
                                 <a href="#contact"
@@ -245,11 +247,11 @@ const About = () => {
                                 </button>
                             </div>
 
-                            <div className="mt-6 bg-background/50 border border-border p-4 rounded-xl text-center">
-                                <h4 className="font-semibold mb-2">Quick Connect</h4>
+                            <div className="mt-6 bg-card border border-border p-4 rounded-xl text-center">
+                                <h4 className="font-semibold mb-2 text-surface">Quick Connect</h4>
                                 <div className="flex justify-center gap-4">
                                     {socialLinks.map((s, i) => (
-                                        <a key={i} href={s.href} className="p-2 rounded-lg hover:text-primary hover:scale-110 transition">
+                                        <a key={i} href={s.href} className="p-2 rounded-lg hover:text-primary hover:scale-110 transition bg-transparent">
                                             {s.icon}
                                         </a>
                                     ))}
@@ -263,15 +265,15 @@ const About = () => {
                             initial="hidden"
                             whileInView="visible"
                             viewport={{ once: true, amount: 0.25 }}
-                            className="bg-card/50 border border-border rounded-3xl p-6 backdrop-blur-xl shadow-2xl"
+                            className="bg-card border border-border rounded-3xl p-6 backdrop-blur-xl shadow-2xl"
                         >
-                            <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
+                            <h3 className="text-xl font-bold mb-4 flex items-center gap-2 text-surface">
                                 <Star className="h-5 w-5 text-primary" /> Why Choose Me
                             </h3>
 
                             <div className="space-y-3">
                                 {features.map((f, i) => (
-                                    <div key={i} className="flex items-center gap-3 p-2 rounded-lg hover:bg-background/50 transition">
+                                    <div key={i} className="flex items-center gap-3 p-2 rounded-lg hover:bg-card transition">
                                         <span className="w-2 h-2 bg-primary rounded-full" />
                                         <p className="text-sm text-muted-foreground hover:text-foreground">{f}</p>
                                     </div>
@@ -285,19 +287,19 @@ const About = () => {
                             initial="hidden"
                             whileInView="visible"
                             viewport={{ once: true, amount: 0.25 }}
-                            className="bg-card/60 border border-border rounded-3xl p-6 backdrop-blur-xl shadow-2xl"
+                            className="bg-card border border-border rounded-3xl p-6 backdrop-blur-xl shadow-2xl"
                         >
                             <div className="flex items-center justify-between mb-3">
                                 <div className="flex items-center gap-3">
                                     <span className="w-3 h-3 bg-green-500 rounded-full animate-pulse" />
-                                    <span className="font-semibold text-sm">Available</span>
+                                    <span className="font-semibold text-sm text-surface">Available</span>
                                 </div>
                                 <span className="text-xs bg-green-500/10 text-green-600 px-2 py-1 rounded-lg">
                                     For new projects
                                 </span>
                             </div>
 
-                            <p className="text-xs text-muted-foreground text-center bg-background/50 p-2 rounded-lg">
+                            <p className="text-xs text-muted-foreground text-center bg-card p-2 rounded-lg">
                                 ⚡ Response time: Under 24 hours
                             </p>
                         </motion.div>

@@ -6,11 +6,12 @@ import Projects from "./components/Projects";
 import Testimonials from "./components/Testimonials";
 import Contact from "./components/Contact";
 import { Footer } from "./components/Footer";
+import Navbar from "./components/Navbar";
 
 export default function App() {
   return (
     <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      
+      <Navbar />
       <Header />
       <main>
         <About />
