@@ -1,123 +1,313 @@
-import React from "react";
+import React, { useState, useEffect } from 'react';
+import {
+    Briefcase, Code, User, Download, Sparkles, Target,
+    Github, Linkedin, Twitter, Mail, Star
+} from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 
-export default function About() {
+const About = () => {
+    const [activeTab, setActiveTab] = useState('personal');
+    const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+    const [counter, setCounter] = useState(0);
+
+    // ----------- SCROLL ANIMATION VARIANTS -----------
+    const scrollFadeUp = {
+        hidden: { opacity: 0, y: 40 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: { duration: 0.7, ease: "easeOut" }
+        }
+    };
+
+    const achievements = [
+        { number: "5+", label: "Projects", icon: <Briefcase className="h-5 w-5" />, suffix: "" },
+        { number: "99", label: "Success", icon: <Target className="h-5 w-5" />, suffix: "%" },
+        { number: "10", label: "Clients", icon: <User className="h-5 w-5" />, suffix: "+" }
+    ];
+
+    const techStack = [
+        { category: "Frontend", items: ["React", "Next.js", "TypeScript", "JavaScript", "HTML", "Tailwind"] },
+        { category: "Backend", items: ["Node.js", "Express"] },
+        { category: "Cloud", items: ["Vercel", "MongoDB"] }
+    ];
+
+    const features = [
+        "MERN-stack expertise", "Clean, maintainable code", "Performance optimization",
+        "Agile methodology", "24/7 support", "Timely delivery"
+    ];
+
+    const socialLinks = [
+        { icon: <Github className="h-5 w-5" />, href: "https://www.github.com/Rakibislam22" },
+        { icon: <Linkedin className="h-5 w-5" />, href: "https://www.linkedin.com/in/md-rakib-ali-383947218/" },
+        { icon: <Twitter className="h-5 w-5" />, href: "#" },
+        { icon: <Mail className="h-5 w-5" />, href: "mailto:mdrakibali.kcn@gmail.com" }
+    ];
+
+    const tabContent = {
+        personal:
+            "I’m a mindset-driven developer who enjoys building impactful digital experiences...",
+        professional:
+            "With hands-on experience in MERN-stack development...",
+        approach:
+            "I follow a clean-code philosophy grounded in clarity and collaboration..."
+    };
+
+    useEffect(() => {
+        const handleMouseMove = e => setMousePosition({ x: e.clientX, y: e.clientY });
+        window.addEventListener('mousemove', handleMouseMove);
+        return () => window.removeEventListener('mousemove', handleMouseMove);
+    }, []);
+
+    useEffect(() => {
+        const interval = setInterval(() => setCounter(prev => (prev + 1) % 4), 2000);
+        return () => clearInterval(interval);
+    }, []);
+
+    const handleDownload = () => {
+        const link = document.createElement('a');
+        link.href = '/Md_Rakib_Ali_Resume.pdf';
+        link.download = 'Md_Rakib_Ali_Resume.pdf';
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+    };
+
     return (
-        <section className="mb-24 lg:mb-32">
-            <div className="text-center mb-12">
-                <span className="inline-flex items-center gap-2 bg-card-light dark:bg-card-dark border border-card-light dark:border-card-dark rounded-full px-4 py-1.5 text-sm mb-4">
-                    <span className="material-symbols-outlined text-primary text-base">person</span> About Me
-                </span>
-                <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white">
-                    Transforming <span className="text-primary">Ideas Into</span> Reality
-                </h2>
-                <p className="mt-4 text-lg text-gray-600 dark:text-gray-400">Building digital experiences that combine innovation, performance, and elegance</p>
-            </div>
+        <section
+            id="about"
+            className="relative py-16 md:py-28 px-4 sm:px-6 lg:px-12
+                       bg-gradient-to-br from-background via-background to-primary/5 overflow-hidden">
 
-            <div className="bg-card-light dark:bg-card-dark border border-card-light dark:border-card-dark p-8 rounded-2xl">
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                    <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
-                        <div className="relative mb-4">
-                            <img alt="profile picture" className="w-32 h-32 rounded-lg object-cover"
-                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6MVH5ljNB_mai196Qeuc61bI9Pf-5xoX-W3JcvdwyhndSgF8pJGxvMdrnmsmqR-k3lO--IOX-_Z6h2_gYBkuWyvIZDM4VU-bsBWozb7UUfDVTu8FbCokMJmvt8onHWrjFWl3SMUCM9Arlb6naYlT-TfjsCczp7WUFbCPbtn0KM_lWTJWiIeTLjckqq_iaCHArEi_TXXfhcYNE6ZBxUU4t9Ag_cP6bYu9gh9jvPsSw56rVzinzuOCfcNiBFzPdJcM2syst-dBQ" />
-                            <span className="absolute -bottom-1 -right-1 block h-5 w-5 rounded-full bg-green-500 border-2 border-white dark:border-gray-800"></span>
-                        </div>
-                        <h3 className="text-2xl font-bold text-gray-900 dark:text-white">MD Rakib Ali</h3>
-                        <p className="text-gray-600 dark:text-gray-400 mb-4">MERN Stack Developer</p>
+            <div className="container mx-auto relative">
 
-                        <div className="grid grid-cols-2 gap-4 w-full">
-                            <SmallStat icon="emoji_events" value="15+" label="Projects" />
-                            <SmallStat icon="calendar_month" value="1+" label="Years Exp" />
-                            <SmallStat icon="verified" value="99%" label="Success" />
-                            <SmallStat icon="groups" value="10+" label="Clients" />
-                        </div>
+                {/* ================= HEADER (Scroll Animated) ================= */}
+                <motion.div
+                    variants={scrollFadeUp}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, amount: 0.3 }}
+                    className="text-center mb-16 md:mb-20 px-2 sm:px-6"
+                >
+                    <div className="inline-flex items-center gap-3 px-6 py-3 rounded-2xl bg-primary/10 border border-primary/20 mb-6">
+                        <Sparkles className="h-5 w-5 text-primary animate-pulse" />
+                        <span className="text-base font-semibold text-primary tracking-wide">ABOUT ME</span>
                     </div>
 
-                    <div className="lg:col-span-2">
-                        <div className="border-b border-card-light dark:border-card-dark mb-6">
-                            <nav aria-label="Tabs" className="flex space-x-8">
-                                <button className="whitespace-nowrap pb-4 px-1 border-b-2 font-medium text-sm text-primary border-primary">Personal</button>
-                                <button className="whitespace-nowrap pb-4 px-1 border-b-2 font-medium text-sm text-gray-500 dark:text-gray-400 border-transparent hover:border-gray-300 dark:hover:border-gray-600 hover:text-gray-700 dark:hover:text-gray-300">Professional</button>
-                                <button className="whitespace-nowrap pb-4 px-1 border-b-2 font-medium text-sm text-gray-500 dark:text-gray-400 border-transparent hover:border-gray-300 dark:hover:border-gray-600 hover:text-gray-700 dark:hover:text-gray-300">Achievements</button>
-                            </nav>
-                        </div>
+                    <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6">
+                        <span className="bg-gradient-to-r from-foreground to-primary bg-clip-text text-transparent">
+                            Transforming
+                        </span>
+                        <span className="block text-primary animate-pulse">Ideas Into Reality</span>
+                    </h1>
 
-                        <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
-                            Passionate about creating digital solutions that make a difference. When I'm not coding, I'm exploring new technologies, contributing to open-source, and mentoring aspiring developers.
-                        </p>
+                    <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
+                        Building digital experiences with innovation, performance, and elegance.
+                    </p>
+                </motion.div>
 
-                        <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8">
-                            <div>
-                                <h4 className="text-xl font-bold text-gray-900 dark:text-white mb-4">Let's Work Together</h4>
-                                <div className="flex gap-4">
-                                    <a className="flex-1 flex flex-col items-center justify-center gap-2 bg-primary-gradient text-white font-semibold py-3 px-4 rounded-lg shadow-lg hover:opacity-90 transition-opacity" href="#">
-                                        <span className="material-symbols-outlined">person_add</span> Start a Project
-                                    </a>
-                                    <a className="flex-1 flex flex-col items-center justify-center gap-2 bg-background-light dark:bg-background-dark border border-card-light dark:border-card-dark text-gray-900 dark:text-white font-semibold py-3 px-4 rounded-lg hover:bg-gray-200 dark:hover:bg-opacity-20 dark:hover:bg-white transition-colors" href="#">
-                                        <span className="material-symbols-outlined">download</span> Download Resume
-                                    </a>
+                {/* GRID */}
+                <div className="grid grid-cols-1 xl:grid-cols-3 gap-12">
+
+                    {/* LEFT COLUMN */}
+                    <div className="xl:col-span-2 space-y-8">
+
+                        {/* ================= ABOUT CARD (Scroll Animated) ================= */}
+                        <motion.div
+                            variants={scrollFadeUp}
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true, amount: 0.2 }}
+                            className="bg-card/50 border border-border rounded-3xl p-8 backdrop-blur-xl shadow-2xl"
+                        >
+
+                            <div className="flex flex-col md:flex-row items-center gap-8">
+
+                                {/* Profile */}
+                                <div className="relative">
+                                    <div className="w-32 h-32 rounded-2xl overflow-hidden border-4 border-primary/20 shadow-xl">
+                                        <img src="/profile-logo.jpg" alt="MD Rakib" className="w-full h-full object-cover" />
+                                    </div>
+                                    <span className="absolute -bottom-2 -right-2 w-8 h-8 bg-green-500 rounded-full border-4 border-background animate-pulse" />
                                 </div>
 
-                                <div className="mt-4 bg-background-light dark:bg-background-dark border border-card-light dark:border-card-dark p-3 rounded-lg">
-                                    <h5 className="text-sm font-semibold text-center mb-2 text-gray-900 dark:text-white">Quick Connect</h5>
-                                    <div className="flex justify-center gap-4 text-gray-500 dark:text-gray-400">
-                                        <IconButton />
-                                        <IconButton />
-                                        <IconButton />
-                                        <IconButton />
+                                {/* Achievements */}
+                                <div className="flex-1 text-center md:text-left">
+                                    <h2 className="text-3xl font-bold">Md Rakib Ali</h2>
+                                    <p className="text-primary text-lg font-semibold mb-4">MERN Stack Developer</p>
+
+                                    <div className="grid grid-cols-2 gap-4">
+                                        {achievements.map((a, i) => (
+                                            <div key={i}
+                                                className={`p-3 rounded-xl border bg-background/50 transition 
+                                                ${counter === i ? "bg-primary/10 border-primary/50" : "border-border"}`}>
+                                                <div className="flex items-center gap-3">
+                                                    {a.icon}
+                                                    <div>
+                                                        <p className="font-bold text-lg">{a.number}{a.suffix}</p>
+                                                        <p className="text-xs text-muted-foreground">{a.label}</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        ))}
                                     </div>
                                 </div>
+
                             </div>
 
-                            <div className="bg-background-light dark:bg-background-dark border border-card-light dark:border-card-dark p-6 rounded-lg">
-                                <h4 className="text-xl font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
-                                    <span className="material-symbols-outlined text-primary">star</span> Why Choose Me
-                                </h4>
-                                <ul className="space-y-3">
-                                    <li className="flex items-center gap-2"><span className="material-symbols-outlined text-primary text-lg">check_circle</span>Full-stack expertise</li>
-                                    <li className="flex items-center gap-2"><span className="material-symbols-outlined text-primary text-lg">check_circle</span>Clean, maintainable code</li>
-                                    <li className="flex items-center gap-2"><span className="material-symbols-outlined text-primary text-lg">check_circle</span>Performance optimization</li>
-                                    <li className="flex items-center gap-2"><span className="material-symbols-outlined text-primary text-lg">check_circle</span>Agile methodology</li>
-                                    <li className="flex items-center gap-2"><span className="material-symbols-outlined text-primary text-lg">check_circle</span>24/7 support</li>
-                                    <li className="flex items-center gap-2"><span className="material-symbols-outlined text-primary text-lg">check_circle</span>Timely delivery</li>
-                                </ul>
+                            {/* Tabs */}
+                            <div className="flex border-b mt-6">
+                                {["personal", "professional", "approach"].map(tab => (
+                                    <button key={tab} onClick={() => setActiveTab(tab)}
+                                        className={`flex-1 py-3 font-medium transition 
+                                            ${activeTab === tab ? "text-primary border-b-2 border-primary"
+                                                : "text-muted-foreground hover:text-foreground"}`}>
+                                        {tab.charAt(0).toUpperCase() + tab.slice(1)}
+                                    </button>
+                                ))}
+                            </div>
 
-                                <div className="mt-4 pt-4 border-t border-card-light dark:border-card-dark flex justify-between items-center text-sm">
-                                    <div className="flex items-center gap-2">
-                                        <span className="h-2 w-2 rounded-full bg-green-500"></span>
-                                        <span>Available</span>
-                                        <span className="bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300 px-2 py-0.5 rounded-full text-xs font-medium">For new projects</span>
+                            {/* Switch Animation */}
+                            <div className="mt-6 min-h-[120px] relative">
+                                <AnimatePresence mode="wait">
+                                    <motion.div
+                                        key={activeTab}
+                                        initial={{ opacity: 0, y: 12, scale: 0.98 }}
+                                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                                        exit={{ opacity: 0, y: -12, scale: 0.98 }}
+                                        transition={{ duration: 0.35, ease: "easeOut" }}
+                                        className="absolute inset-0"
+                                    >
+                                        <p className="text-lg text-muted-foreground leading-relaxed">
+                                            {tabContent[activeTab]}
+                                        </p>
+                                    </motion.div>
+                                </AnimatePresence>
+                            </div>
+
+                        </motion.div>
+
+                        {/* ================= TECH STACK (Scroll Animated) ================= */}
+                        <motion.div
+                            variants={scrollFadeUp}
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true, amount: 0.2 }}
+                            className="bg-card/50 border border-border rounded-3xl p-8 backdrop-blur-xl shadow-2xl"
+                        >
+                            <h3 className="text-2xl font-bold mb-6 flex items-center gap-3">
+                                <Code className="h-6 w-6 text-primary" /> Tech Stack Overview
+                            </h3>
+
+                            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                                {techStack.map((stack, i) => (
+                                    <div key={i} className="p-6 rounded-2xl border bg-background/50 hover:border-primary/30 transition">
+                                        <h4 className="font-semibold text-lg mb-4">{stack.category}</h4>
+                                        <div className="space-y-2">
+                                            {stack.items.map((item, idx) => (
+                                                <p key={idx} className="text-sm text-muted-foreground hover:text-foreground flex items-center gap-2">
+                                                    <span className="w-2 h-2 bg-primary rounded-full" />
+                                                    {item}
+                                                </p>
+                                            ))}
+                                        </div>
                                     </div>
-                                    <p className="flex items-center gap-1 text-xs text-yellow-600 dark:text-yellow-400">
-                                        <span className="material-symbols-outlined text-sm">bolt</span> Response time: Under 24 hours
-                                    </p>
-                                </div>
+                                ))}
                             </div>
-                        </div>
+                        </motion.div>
+
                     </div>
+
+                    {/* ================= RIGHT COLUMN ================= */}
+                    <div className="space-y-8">
+
+                        {/* Work Together */}
+                        <motion.div
+                            variants={scrollFadeUp}
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true, amount: 0.2 }}
+                            className="bg-card/50 border border-border rounded-3xl p-8 backdrop-blur-xl shadow-2xl"
+                        >
+                            <h3 className="text-2xl font-bold mb-6 text-center">Let's Work Together</h3>
+
+                            <div className="flex flex-col sm:flex-row gap-4">
+                                <a href="#contact"
+                                    className="flex-1 bg-primary text-white p-4 rounded-xl text-center font-semibold hover:bg-primary/90">
+                                    <User className="inline-block mr-2" /> Start a Project
+                                </a>
+
+                                <button
+                                    onClick={handleDownload}
+                                    className="flex-1 p-4 border border-border rounded-xl text-center font-semibold hover:bg-accent">
+                                    <Download className="inline-block mr-2" />
+                                    Download Resume
+                                </button>
+                            </div>
+
+                            <div className="mt-6 bg-background/50 border border-border p-4 rounded-xl text-center">
+                                <h4 className="font-semibold mb-2">Quick Connect</h4>
+                                <div className="flex justify-center gap-4">
+                                    {socialLinks.map((s, i) => (
+                                        <a key={i} href={s.href} className="p-2 rounded-lg hover:text-primary hover:scale-110 transition">
+                                            {s.icon}
+                                        </a>
+                                    ))}
+                                </div>
+                            </div>
+                        </motion.div>
+
+                        {/* Why Choose Me */}
+                        <motion.div
+                            variants={scrollFadeUp}
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true, amount: 0.25 }}
+                            className="bg-card/50 border border-border rounded-3xl p-6 backdrop-blur-xl shadow-2xl"
+                        >
+                            <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
+                                <Star className="h-5 w-5 text-primary" /> Why Choose Me
+                            </h3>
+
+                            <div className="space-y-3">
+                                {features.map((f, i) => (
+                                    <div key={i} className="flex items-center gap-3 p-2 rounded-lg hover:bg-background/50 transition">
+                                        <span className="w-2 h-2 bg-primary rounded-full" />
+                                        <p className="text-sm text-muted-foreground hover:text-foreground">{f}</p>
+                                    </div>
+                                ))}
+                            </div>
+                        </motion.div>
+
+                        {/* Availability */}
+                        <motion.div
+                            variants={scrollFadeUp}
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true, amount: 0.25 }}
+                            className="bg-card/60 border border-border rounded-3xl p-6 backdrop-blur-xl shadow-2xl"
+                        >
+                            <div className="flex items-center justify-between mb-3">
+                                <div className="flex items-center gap-3">
+                                    <span className="w-3 h-3 bg-green-500 rounded-full animate-pulse" />
+                                    <span className="font-semibold text-sm">Available</span>
+                                </div>
+                                <span className="text-xs bg-green-500/10 text-green-600 px-2 py-1 rounded-lg">
+                                    For new projects
+                                </span>
+                            </div>
+
+                            <p className="text-xs text-muted-foreground text-center bg-background/50 p-2 rounded-lg">
+                                ⚡ Response time: Under 24 hours
+                            </p>
+                        </motion.div>
+
+                    </div>
+
                 </div>
             </div>
         </section>
     );
-}
+};
 
-function SmallStat({ icon, value, label }) {
-    return (
-        <div className="bg-background-light dark:bg-background-dark p-3 rounded-lg flex items-center gap-2">
-            <span className="material-symbols-outlined text-primary">{icon}</span>
-            <div>
-                <p className="font-bold text-gray-900 dark:text-white">{value}</p>
-                <p className="text-xs">{label}</p>
-            </div>
-        </div>
-    );
-}
-
-function IconButton() {
-    return (
-        <a className="hover:text-primary" href="#">
-            <svg aria-hidden="true" className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                <path clipRule="evenodd" d="M16.5 4.5a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM18.75 9.75a.75.75 0 00-1.5 0v.255a8.25 8.25 0 01-11.42 6.31l-.1.045a.75.75 0 00.42.145h12.1a.75.75 0 00.42-.145l-.1-.045A8.25 8.25 0 0118.75 10.005V9.75z" fillRule="evenodd"></path>
-            </svg>
-        </a>
-    );
-}
+export default About;
