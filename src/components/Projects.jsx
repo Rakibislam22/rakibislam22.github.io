@@ -6,7 +6,7 @@ export default function Projects() {
         {
             title: "First Next App",
             desc: "A modern full-stack Next.js + Express.js + MongoDB application for managing products with secure authentication, product creation, deletion.",
-            img: "https://i.ibb.co.com/27Z14v2b/a.png",
+            img: "a.png",
             tags: ["TypeScript", "axios", "express", "nextauth", "nextjs", "tailwindcss"],
             bullets: [
                 "Full-stack Next.js (App Router) frontend with an Express.js backend",
@@ -19,9 +19,9 @@ export default function Projects() {
             featured: false,
         },
         {
-            title: "Movie Master Pro Client",
+            title: "Movie Master Pro",
             desc: "Movie Master Pro is a modern, animated, and responsive movie discovery web application built using React + Vite.",
-            img: "https://i.ibb.co.com/wF6H0Ky5/b.png",
+            img: "b.png",
             tags: ["JavaScript", "react", "vite", "daisyui", "firebase-auth", "tailwind"],
             bullets: [
                 "Movie discovery UI with animated/responsive interactions",
@@ -36,7 +36,7 @@ export default function Projects() {
         {
             title: "Green Nest",
             desc: "A modern React + Firebase web app for plant lovers.",
-            img: "https://i.ibb.co.com/b5YtGhcC/c.png",
+            img: "c.png",
             tags: ["JavaScript", "react", "firebase-auth", "context-api", "nodejs", "reactrouter"],
             bullets: [
                 "Plant-focused web app built with React",
@@ -51,7 +51,7 @@ export default function Projects() {
         {
             title: "GreenEarth",
             desc: "GreenEarth is a modern, eco-themed landing page designed to spread awareness about environmental protection.",
-            img: "https://i.ibb.co.com/tp3rH9LS/d.png",
+            img: "d.png",
             tags: ["HTML", "css3", "daisyui", "html5", "javascript", "tailwindcss"],
             bullets: [
                 "Eco-themed landing page to promote environmental awareness",
@@ -66,7 +66,7 @@ export default function Projects() {
         {
             title: "Hero IO",
             desc: "Hero-IO is a front-end practice project showcasing multiple resource usages and UI patterns (live demo on Netlify).",
-            img: "https://i.ibb.co.com/5hMW3rsr/e.png",
+            img: "e.png",
             tags: ["JavaScript", "react", "react-hooks", "react-router", "tailwindcss", "daisyui"],
             bullets: [
                 "Front-end practice project focusing on UI/UX",
@@ -81,7 +81,7 @@ export default function Projects() {
         {
             title: "English Janala",
             desc: "A small practice website built for learning and experimentation.",
-            img: "https://i.ibb.co.com/5XJ0hgT9/f.png",
+            img: "f.png",
             tags: ["HTML", "daisyui", "html5", "javascript", "tailwindcss"],
             bullets: [
                 "Practice/learning site (English-focused content)",
