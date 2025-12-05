@@ -1,76 +1,209 @@
-import React from "react";
+import React, { useState } from "react";
+import emailjs from "emailjs-com";
+import { Mail, Phone, MapPin, Facebook, Youtube, Instagram, Send, Loader2, Github } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function Contact() {
+    const [formData, setFormData] = useState({
+        name: "",
+        email: "",
+        message: "",
+    });
+
+    const [status, setStatus] = useState("");
+    const [loading, setLoading] = useState(false);
+
+    const handleChange = (e) => {
+        setFormData({ ...formData, [e.target.name]: e.target.value });
+    };
+
+    const sendEmail = (e) => {
+        e.preventDefault();
+        setLoading(true);
+        setStatus("");
+
+        emailjs
+            .send(
+                "service_ehf7j2a",
+                "template_b1fhrdi",
+                formData,
+                "8C2-PMaXJeATcg7Ir"
+            )
+            .then(
+                () => {
+                    setStatus("Message sent successfully!");
+                    setFormData({ name: "", email: "", message: "" });
+                    setLoading(false);
+                    setTimeout(() => {
+                        setStatus("");
+                    }, 1500);
+                },
+                () => {
+                    setStatus("Failed to send message. Try again!");
+                    setLoading(false);
+                }
+            );
+    };
+
     return (
         <section>
-            <div className="text-center mb-12">
-                <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white">Get In <span className="text-primary">Touch</span></h2>
-                <p className="mt-4 text-lg text-gray-600 dark:text-gray-400">Have a project in mind or just want to say hi? My inbox is always open.</p>
-            </div>
+            {/* HEADER SCROLL ANIMATION */}
+            <motion.div
+                id="contact"
+                className="text-center mb-12"
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true }}
+            >
+                <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white">
+                    Get In <span className="text-primary">Touch</span>
+                </h2>
+                <p className="mt-4 text-lg text-gray-600 dark:text-gray-400">
+                    Have a project in mind or just want to say hi? My inbox is always open.
+                </p>
+            </motion.div>
 
-            <div className="bg-card-light dark:bg-card-dark border border-card-light dark:border-card-dark p-8 rounded-2xl max-w-5xl mx-auto">
+            <motion.div
+                className="bg-card-light dark:bg-card-dark border border-card-light dark:border-card-dark p-8 rounded-2xl max-w-5xl mx-auto"
+                initial={{ opacity: 0, y: 60 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7 }}
+                viewport={{ once: true }}
+            >
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                    <div>
-                        <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-2"><span className="w-2.5 h-2.5 bg-primary rounded-full"></span>Contact Details</h3>
+                    {/* LEFT SIDE */}
+                    <motion.div
+                        initial={{ opacity: 0, x: -40 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.7 }}
+                        viewport={{ once: true }}
+                    >
+                        <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-2">
+                            <span className="w-2.5 h-2.5 bg-primary rounded-full"></span>
+                            Contact Details
+                        </h3>
 
                         <div className="space-y-6">
-                            <ContactRow icon="email" label="Email" value="mdrakibali.kcn@gmail.com" />
-                            <ContactRow icon="phone" label="Phone" value="+880 178693744" />
-                            <ContactRow icon="location_on" label="Location" value="Dhaka, Bangladesh" />
+                            <ContactRow icon={<Mail className="text-primary" />} label="Email" value="mdrakibali.kcn@gmail.com" />
+                            <ContactRow icon={<Phone className="text-primary" />} label="Phone" value="+880 178693744" />
+                            <ContactRow icon={<MapPin className="text-primary" />} label="Location" value="Dhaka, Bangladesh" />
                         </div>
 
                         <div className="mt-8 pt-6 border-t border-card-light dark:border-card-dark">
-                            <h4 className="text-center font-semibold text-gray-900 dark:text-white mb-4">Find me on</h4>
+                            <h4 className="text-center font-semibold text-gray-900 dark:text-white mb-4">
+                                Find me on
+                            </h4>
+
                             <div className="flex justify-center gap-6 text-gray-500 dark:text-gray-400">
-                                <a className="hover:text-primary" href="#"><svg aria-hidden="true" className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path clipRule="evenodd" d="M16.5 4.5a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM18.75 9.75a.75.75 0 00-1.5 0v.255a8.25 8.25 0 01-11.42 6.31l-.1.045a.75.75 0 00.42.145h12.1a.75.75 0 00.42-.145l-.1-.045A8.25 8.25 0 0118.75 10.005V9.75z" fillRule="evenodd"></path></svg></a>
-                                <a className="hover:text-primary" href="#"><svg aria-hidden="true" className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M21.721 12.752a9.711 9.711 0 00-.945-5.033 3.284 3.284 0 00-2.43-1.85C16.736 5.66 13.014 5.25 12 5.25c-1.014 0-4.736.41-6.346.619a3.284 3.284 0 00-2.43 1.85A9.711 9.711 0 002.279 12.752a9.711 9.711 0 00.945 5.033 3.284 3.284 0 002.43 1.85c1.61.209 5.332.619 6.346.619 1.014 0 4.736-.41 6.346-.619a3.284 3.284 0 002.43-1.85 9.711 9.711 0 00.945-5.033zM10.864 15.356V9.144l4.537 3.106-4.537 3.106z"></path></svg></a>
-                                <a className="hover:text-primary" href="#"><svg aria-hidden="true" className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19.75 2.25a2.25 2.25 0 00-2.25 2.25v2.25H15.75a2.25 2.25 0 00-2.25 2.25v2.25h-2.25a2.25 2.25 0 00-2.25 2.25V18a2.25 2.25 0 002.25 2.25h6a2.25 2.25 0 002.25-2.25v-2.25h2.25a2.25 2.25 0 002.25-2.25V6.75a2.25 2.25 0 00-2.25-2.25H19.75zM4.5 6.75A2.25 2.25 0 016.75 4.5h3.75a.75.75 0 010 1.5H6.75A.75.75 0 006 6.75v10.5c0 .414.336.75.75.75h10.5a.75.75 0 00.75-.75V15a.75.75 0 011.5 0v2.25A2.25 2.25 0 0118 19.5H6.75A2.25 2.25 0 014.5 17.25V6.75z"></path></svg></a>
+                                <a className="hover:text-primary" href="https://github.com/Rakibislam22"><Github className="w-6 h-6" /></a>
+                                <a className="hover:text-primary" href="https://www.facebook.com/rakibislam.KCN"><Facebook className="w-6 h-6" /></a>
+                                <a className="hover:text-primary" href="https://www.instagram.com/rakibislam789/"><Instagram className="w-6 h-6" /></a>
                             </div>
                         </div>
-                    </div>
+                    </motion.div>
 
-                    <div>
+                    {/* RIGHT SIDE — FORM */}
+                    <motion.div
+                        initial={{ opacity: 0, x: 40 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.7 }}
+                        viewport={{ once: true }}
+                    >
                         <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-2">
-                            <span className="w-2.5 h-2.5 bg-primary rounded-full"></span>Send Me a Message
+                            <span className="w-2.5 h-2.5 bg-primary rounded-full"></span>
+                            Send Me a Message
                         </h3>
 
-                        <form action="#" className="space-y-6" method="POST">
+                        <form onSubmit={sendEmail} className="space-y-6">
                             <div>
-                                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300" htmlFor="name">Your Name</label>
-                                <input className="mt-1 block w-full bg-background-light dark:bg-background-dark border-card-light dark:border-card-dark rounded-md shadow-sm focus:ring-primary focus:border-primary" id="name" name="name" placeholder="John Doe" type="text" />
+                                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                                    Your Name
+                                </label>
+                                <input
+                                    className="mt-1 block w-full bg-background-light dark:bg-background-dark border-card-light dark:border-card-dark rounded-md shadow-sm focus:ring-primary focus:border-primary"
+                                    name="name"
+                                    value={formData.name}
+                                    onChange={handleChange}
+                                    type="text"
+                                    placeholder="John Doe"
+                                    required
+                                />
                             </div>
 
                             <div>
-                                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300" htmlFor="email">Your Email</label>
-                                <input className="mt-1 block w-full bg-background-light dark:bg-background-dark border-card-light dark:border-card-dark rounded-md shadow-sm focus:ring-primary focus:border-primary" id="email" name="email" placeholder="john@example.com" type="email" />
+                                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                                    Your Email
+                                </label>
+                                <input
+                                    className="mt-1 block w-full bg-background-light dark:bg-background-dark border-card-light dark:border-card-dark rounded-md shadow-sm focus:ring-primary focus:border-primary"
+                                    name="email"
+                                    value={formData.email}
+                                    onChange={handleChange}
+                                    type="email"
+                                    placeholder="john@example.com"
+                                    required
+                                />
                             </div>
 
                             <div>
-                                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300" htmlFor="message">Your Message</label>
-                                <textarea className="mt-1 block w-full bg-background-light dark:bg-background-dark border-card-light dark:border-card-dark rounded-md shadow-sm focus:ring-primary focus:border-primary" id="message" name="message" placeholder="Hey, I'd love to collaborate on..." rows="4"></textarea>
+                                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                                    Your Message
+                                </label>
+                                <textarea
+                                    className="mt-1 block w-full bg-background-light dark:bg-background-dark border-card-light dark:border-card-dark rounded-md shadow-sm focus:ring-primary focus:border-primary"
+                                    name="message"
+                                    value={formData.message}
+                                    onChange={handleChange}
+                                    rows="4"
+                                    placeholder="Hey, I'd love to collaborate on..."
+                                    required
+                                ></textarea>
                             </div>
 
-                            <div>
-                                <button className="w-full flex items-center justify-center gap-2 bg-primary-gradient text-white font-semibold py-3 px-6 rounded-lg shadow-lg hover:opacity-90 transition-opacity" type="submit">
-                                    Send Message <span className="material-symbols-outlined">send</span>
-                                </button>
-                            </div>
+                            {/* SUBMIT BUTTON WITH LOADING */}
+                            <button
+                                disabled={loading}
+                                className="w-full flex items-center justify-center gap-2 bg-primary-gradient text-white font-semibold py-3 px-6 rounded-lg shadow-lg transition-all disabled:opacity-60 disabled:cursor-not-allowed"
+                                type="submit"
+                            >
+                                {loading ? (
+                                    <>
+                                        <Loader2 className="animate-spin" size={20} />
+                                        Sending...
+                                    </>
+                                ) : (
+                                    <>
+                                        Send Message <Send size={18} />
+                                    </>
+                                )}
+                            </button>
+
+                            {status && <p className="text-center text-sm text-primary mt-2">{status}</p>}
                         </form>
-                    </div>
+                    </motion.div>
                 </div>
-            </div>
+            </motion.div>
         </section>
     );
 }
 
 function ContactRow({ icon, label, value }) {
     return (
-        <div className="flex items-center gap-4">
-            <div className="bg-background-light dark:bg-background-dark p-3 rounded-lg"><span className="material-symbols-outlined text-primary">{icon}</span></div>
+        <motion.div
+            className="flex items-center gap-4"
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+        >
+            <div className="bg-background-light dark:bg-background-dark p-3 rounded-lg">
+                {icon}
+            </div>
             <div>
                 <p className="text-sm text-gray-500 dark:text-gray-400">{label}</p>
                 <p className="font-semibold text-gray-900 dark:text-white">{value}</p>
             </div>
-        </div>
+        </motion.div>
     );
 }

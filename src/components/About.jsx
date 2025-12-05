@@ -40,7 +40,7 @@ const About = () => {
     const socialLinks = [
         { icon: <Github className="h-5 w-5" />, href: "https://www.github.com/Rakibislam22" },
         { icon: <Linkedin className="h-5 w-5" />, href: "https://www.linkedin.com/in/md-rakib-ali-383947218/" },
-        { icon: <Twitter className="h-5 w-5" />, href: "#" },
+        { icon: <Twitter className="h-5 w-5" />, href: "https://x.com/rakibislam44" },
         { icon: <Mail className="h-5 w-5" />, href: "mailto:mdrakibali.kcn@gmail.com" }
     ];
 
@@ -76,7 +76,7 @@ const About = () => {
     return (
         <section
             id="about"
-            className="relative py-16 md:py-28 px-4 sm:px-6 lg:px-12
+            className="relative py-16 px-4 sm:px-6 lg:px-12
                        bg-gradient-to-br from-background via-background to-primary/5 overflow-hidden">
 
             <div className="container mx-auto relative">
