@@ -13,7 +13,7 @@ const Header = () => {
         "",
         "const developer = new MERNStackDeveloper({",
         "  name: 'Rakib',",
-        "  stack: ['React', 'Next.js', 'Node.js', 'TypeScript'],",
+        "  stack: ['React', 'Next.js', 'Node.js', 'JavaScript', 'TypeScript'],",
         "  focus: 'Building scalable web applications',",
         "  status: 'Open to new opportunities'",
         "});",
@@ -176,7 +176,7 @@ const Header = () => {
                 </motion.div>
             </div>
 
-            <motion.div className="absolute bottom-8 transform -translate-x-1/2 flex flex-col items-center" initial={{ opacity: 0, y: 20 }} animate={{ opacity: [0, 1, 1, 0], y: [0, 6, 0, -6] }} transition={{ duration: 3, repeat: Infinity, repeatDelay: 0.5 }}>
+            <motion.div className="max-sm:hidden absolute bottom-8 transform -translate-x-1/2 flex flex-col items-center" initial={{ opacity: 0, y: 20 }} animate={{ opacity: [0, 1, 1, 0], y: [0, 6, 0, -6] }} transition={{ duration: 3, repeat: Infinity, repeatDelay: 0.5 }}>
                 <motion.div className="text-xs text-primary mb-3 flex items-center gap-2 px-4 py-2 rounded-full bg-background/80 backdrop-blur-sm border border-border shadow-lg" whileHover={{ scale: 1.05 }}>
                     <MousePointerClick className="h-3 w-3" />
                     <span>Explore Technical Portfolio</span>
