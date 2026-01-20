@@ -53,7 +53,7 @@ const Header = () => {
     };
 
     return (
-        <section id="hero" className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 overflow-hidden bg-gradient-to-br from-background via-background/95 to-primary/10" ref={ref}>
+        <section id="hero" className="relative min-h-[90vh] max-h-[93vh] mt-10 flex items-center justify-center px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-background via-background/95 to-primary/10" ref={ref}>
 
             <div className="container mx-auto w-full mt-16 sm:mt-0">
                 <motion.div className="flex flex-col lg:flex-row items-center justify-between gap-16 lg:gap-20" initial="hidden" animate={isInView ? "visible" : "hidden"} variants={{ hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.25, delayChildren: 0.5 } } }}>
@@ -106,7 +106,7 @@ const Header = () => {
 
                     <motion.div className="flex-1 flex justify-center lg:justify-end w-full" variants={{ hidden: { y: 30, opacity: 0 }, visible: { y: 0, opacity: 1, transition: { duration: 0.8 } } }}>
                         <div className="relative w-full max-w-md">
-                            <motion.div className="bg-background/50 border border-border rounded-2xl p-8 my-20 backdrop-blur-sm shadow-2xl w-full group hover:shadow-3xl transition-all duration-500" whileHover={{ y: -4 }} transition={{ type: "spring", stiffness: 400, damping: 25 }}>
+                            <motion.div className="bg-background/50 border border-border rounded-2xl p-8 my-20 backdrop-blur-sm shadow-xl w-full group hover:shadow-2xl transition-all duration-500" whileHover={{ y: -4 }} transition={{ type: "spring", stiffness: 400, damping: 25 }}>
 
                                 <div className="flex items-center gap-4 mb-6">
                                     <div className="flex gap-2">
@@ -120,7 +120,7 @@ const Header = () => {
                                     <div className="w-4 h-4 bg-green-400/20 rounded-full animate-pulse"></div>
                                 </div>
 
-                                <div className="font-mono text-sm bg-primary/5 rounded-lg border border-primary/10 min-h-[280px] flex">
+                                <div className="font-mono text-sm bg-primary/5 rounded-lg border border-primary/10 flex">
                                     <div className="p-6 w-full">
                                         <div className="grid grid-cols-1 gap-1 h-full content-start">
                                             {codeSnippets.map((line, index) => (

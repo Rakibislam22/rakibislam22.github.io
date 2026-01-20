@@ -13,6 +13,7 @@
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
+    "@tailwindcss/vite": "^4.1.18",
     "emailjs-com": "^3.2.0",
     "framer-motion": "^12.23.25",
     "gh-pages": "^6.3.0",
@@ -21,6 +22,7 @@
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-tsparticles": "^2.12.2",
+    "tailwindcss": "^4.1.18",
     "tsparticles": "^3.9.1"
   },
   "devDependencies": {
