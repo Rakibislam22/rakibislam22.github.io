@@ -53,7 +53,7 @@ const Header = () => {
     };
 
     return (
-        <section id="hero" className="relative min-h-[90vh] max-h-[93vh] mt-10 flex items-center justify-center px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-background via-background/95 to-primary/10" ref={ref}>
+        <section id="hero" className="relative min-h-[90vh] lg:max-h-[93vh] mt-10 flex items-center justify-center px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-background via-background/95 to-primary/10" ref={ref}>
 
             <div className="container mx-auto w-full mt-16 sm:mt-0">
                 <motion.div className="flex flex-col lg:flex-row items-center justify-between gap-16 lg:gap-20" initial="hidden" animate={isInView ? "visible" : "hidden"} variants={{ hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.25, delayChildren: 0.5 } } }}>
