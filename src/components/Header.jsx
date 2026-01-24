@@ -75,24 +75,24 @@ const Header = () => {
                         </motion.p>
 
                         <motion.div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start py-10" variants={{ hidden: { y: 30, opacity: 0 }, visible: { y: 0, opacity: 1, transition: { duration: 0.8 } } }}>
-                            <motion.a href="#projects" className="text-white group relative overflow-hidden px-8 py-4 rounded-xl font-semibold bg-gradient-to-r from-primary to-purple-600 text-primary-foreground shadow-lg hover:shadow-xl text-sm flex items-center justify-center gap-3" whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.95 }}>
-                                <Code className="h-5 w-5" />
+                            <motion.a href="#projects" className="text-white group relative overflow-hidden px-6 py-4 rounded-xl font-semibold bg-gradient-to-r from-primary to-purple-600 text-primary-foreground shadow-lg hover:shadow-xl text-md flex items-center justify-center gap-3" whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.95 }}>
+                                <Code className="h-8 w-8" />
                                 <span>View Case Studies</span>
-                                <TrendingUp className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                                <TrendingUp className="h-8 w-8 group-hover:translate-x-1 transition-transform" />
                             </motion.a>
 
-                            <motion.a href="#contact" className="group relative overflow-hidden px-8 py-4 rounded-xl font-semibold border border-primary/50 text-foreground hover:border-primary transition-all duration-300 bg-background/80 backdrop-blur-sm text-sm flex items-center justify-center gap-3" whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.95 }}>
-                                <Mail className="h-4 w-4" />
+                            <motion.a href="#contact" className="group relative overflow-hidden px-6 py-4 rounded-xl font-semibold border border-primary/50 text-foreground hover:border-primary transition-all duration-300 bg-background/80 backdrop-blur-sm text-md flex items-center justify-center gap-3" whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.95 }}>
+                                <Mail className="h-8 w-8" />
                                 <span>Technical Interview</span>
                             </motion.a>
 
                             <motion.button
                                 onClick={handleViewResume}
-                                className="group relative overflow-hidden px-6 py-4 rounded-xl font-semibold border border-border text-muted-foreground hover:border-primary/30 transition-all duration-300 bg-background/60 backdrop-blur-sm text-sm flex items-center justify-center gap-2"
+                                className="group relative overflow-hidden px-6 py-4 rounded-xl font-semibold border border-border text-muted-foreground hover:border-primary/30 transition-all duration-300 bg-background/60 backdrop-blur-sm text-md flex items-center justify-center gap-2"
                                 whileHover={{ scale: 1.05, y: -2 }}
                                 whileTap={{ scale: 0.95 }}
                             >
-                                <Download className="h-4 w-4" />
+                                <Download className="h-8 w-8" />
                                 <span>View Resume</span>
                             </motion.button>
                         </motion.div>
@@ -105,7 +105,7 @@ const Header = () => {
                     </div>
 
                     <motion.div className="flex-1 flex justify-center lg:justify-end w-full" variants={{ hidden: { y: 30, opacity: 0 }, visible: { y: 0, opacity: 1, transition: { duration: 0.8 } } }}>
-                        <div className="relative w-full max-w-md">
+                        <div className="min-h-[250px] relative w-full max-w-md">
                             <motion.div className="bg-background/50 border border-border rounded-2xl p-8 my-20 backdrop-blur-sm shadow-xl w-full group hover:shadow-2xl transition-all duration-500" whileHover={{ y: -4 }} transition={{ type: "spring", stiffness: 400, damping: 25 }}>
 
                                 <div className="flex items-center gap-4 mb-6">
@@ -122,7 +122,7 @@ const Header = () => {
 
                                 <div className="font-mono text-sm bg-primary/5 rounded-lg border border-primary/10 flex">
                                     <div className="p-6 w-full">
-                                        <div className="grid grid-cols-1 gap-1 h-full content-start">
+                                        <div className="grid grid-cols-1 gap-1  content-start">
                                             {codeSnippets.map((line, index) => (
                                                 <div
                                                     key={index}

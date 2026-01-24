@@ -236,7 +236,8 @@ const About = () => {
                             <div className="flex flex-col sm:flex-row gap-4">
                                 <a href="#contact"
                                     className="flex-1 bg-primary text-white p-4 rounded-xl text-center font-semibold hover:bg-primary/90">
-                                    <User className="inline-block mr-2" /> Start a Project
+                                    <User className="inline-block mr-2" />
+                                    <br />Start a Project
                                 </a>
 
                                 <button

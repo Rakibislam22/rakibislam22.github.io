@@ -37,6 +37,8 @@ export default function Navbar() {
         { label: "Home", href: "#hero" },
         { label: "About", href: "#about" },
         { label: "Projects", href: "#projects" },
+        // { label: "Certifications", href: "#certifications" },
+        // { label: "Competitive", href: "#competitive-programming" },
         { label: "Testimonials", href: "#testimonials" },
         { label: "Contact", href: "#contact" },
     ];
