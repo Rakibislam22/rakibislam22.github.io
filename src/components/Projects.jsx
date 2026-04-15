@@ -29,7 +29,30 @@ export default function Projects() {
             repo_link: "https://github.com/the-team-undefined",
             featured: false,
         },
-
+        {
+            title: "ScholarStream Client",
+            desc: "A React-based frontend for discovering and applying to curated scholarship opportunities worldwide.",
+            img: "scholarstream-client.png",
+            tags: [
+                "React",
+                "React Router",
+                "TailwindCSS",
+                "DaisyUI",
+                "Axios",
+                "Firebase Auth",
+                "React Hook Form",
+                "Framer Motion",
+            ],
+            bullets: [
+                "Scholarship discovery by category, country, and deadline",
+                "Application workflow with submission management",
+                "User dashboard to manage scholarships",
+                "Responsive UI styled with TailwindCSS ",
+            ],
+            live_link: "https://scholarstream-1.web.app/",
+            repo_link: "https://github.com/Rakibislam22/ScholarStream-Client",
+            featured: false,
+        },
         {
             title: "NextLevel Shop",
             desc: "A modern full-stack Next.js + Express.js + MongoDB application for managing products with secure authentication, product creation, deletion.",
@@ -88,35 +111,6 @@ export default function Projects() {
             ],
             live_link: "https://greeenearth.netlify.app/",
             repo_link: "https://github.com/Rakibislam22/GreenEarth",
-            featured: false,
-        },
-        {
-            title: "Hero IO",
-            desc: "Hero-IO is a front-end practice project showcasing multiple resource usages and UI patterns (live demo on Netlify).",
-            img: "e.png",
-            tags: ["JavaScript", "react", "react-hooks", "react-router", "tailwindcss", "daisyui"],
-            bullets: [
-                "Front-end practice project focusing on UI/UX",
-                "Built with React, React Hooks and React Router",
-                "Styling with TailwindCSS and DaisyUI",
-                "Demonstrates fetching resources and local state handling",
-            ],
-            live_link: "https://hero-io-system.netlify.app/",
-            repo_link: "https://github.com/Rakibislam22/hero-io",
-            featured: false,
-        },
-        {
-            title: "English Janala",
-            desc: "A small practice website built for learning and experimentation.",
-            img: "f.png",
-            tags: ["HTML", "daisyui", "html5", "javascript", "tailwindcss"],
-            bullets: [
-                "Practice/learning site (English-focused content)",
-                "Built using plain HTML enhanced with TailwindCSS and DaisyUI",
-                "Lightweight, responsive layout",
-            ],
-            live_link: "https://rakibislam22.github.io/englishJanala/",
-            repo_link: "https://github.com/Rakibislam22/englishJanala",
             featured: false,
         }
     ];
