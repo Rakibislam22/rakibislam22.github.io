@@ -4,7 +4,34 @@ import { motion } from "framer-motion";
 export default function Projects() {
     const projects = [
         {
-            title: "First Next App",
+            title: "ConvoX – Real-Time Platform",
+            desc: "A full-stack real-time collaboration and messaging platform with a Next.js frontend and a production-grade Node.js backend.",
+            img: "convox.png",
+            tags: [
+                "Next.js",
+                "TailwindCSS",
+                "Node.js",
+                "Express.js",
+                "Socket.IO",
+                "MongoDB",
+                "Redis",
+                "LiveKit",
+                "JWT",
+                "Axios",
+            ],
+            bullets: [
+                "Next.js client with protected routes, Auth/Socket context, and real-time chat UI",
+                "Direct messaging and group chat with ",
+                "Workspaces and channels plus a social feed",
+                "Audio calls powered by LiveKit and file uploads to Cloudflare",
+            ],
+            live_link: "https://convox-chat.vercel.app",
+            repo_link: "https://github.com/the-team-undefined",
+            featured: false,
+        },
+
+        {
+            title: "NextLevel Shop",
             desc: "A modern full-stack Next.js + Express.js + MongoDB application for managing products with secure authentication, product creation, deletion.",
             img: "a.png",
             tags: ["TypeScript", "axios", "express", "nextauth", "nextjs", "tailwindcss"],
