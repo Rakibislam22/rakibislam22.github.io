@@ -129,7 +129,7 @@ export default function Projects() {
     };
 
     return (
-        <section className="mb-24 lg:mb-32">
+        <section className="mb-24 lg:mb-32 projects-section">
             <motion.div
                 id="projects"
                 initial={{ opacity: 0, y: 20 }}

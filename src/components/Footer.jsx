@@ -57,7 +57,7 @@ export const Footer = () => {
     };
 
     return (
-        <footer className="px-6 py-12 mt-20">
+        <footer className="pb-5 pt-12 mt-20">
             <div className="max-w-6xl mx-auto">
                 {/* Glass background container */}
                 <motion.div

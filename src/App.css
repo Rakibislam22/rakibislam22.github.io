@@ -2,6 +2,11 @@
     position: relative;
     min-height: 100vh;
     isolation: isolate;
+    background: linear-gradient(180deg, #f5f9ff 0%, #e8f1ff 50%, #dce5f5 100%);
+}
+
+.dark .app-shell {
+    background: #0a0a14;
 }
 
 .app-content {
@@ -10,12 +15,12 @@
 }
 
 .starfield {
-    --space-bg: linear-gradient(180deg, #e3f2fd 0%, #bbdefb 50%, #90caf9 100%);
-    --aurora-1: rgba(99, 155, 225, 0.08);
-    --aurora-2: rgba(79, 129, 215, 0.06);
-    --aurora-3: rgba(66, 133, 244, 0.05);
-    --star-core: #1a1a1a;
-    --star-glow: rgba(26, 26, 26, 0.35);
+    --space-bg: linear-gradient(180deg, rgba(245, 249, 255, 0.95) 0%, rgba(187, 222, 251, 0.85) 50%, rgba(156, 204, 249, 0.8) 100%);
+    --aurora-1: rgba(99, 155, 225, 0.06);
+    --aurora-2: rgba(79, 129, 215, 0.04);
+    --aurora-3: rgba(66, 133, 244, 0.03);
+    --star-core: #2a2a3a;
+    --star-glow: rgba(42, 42, 58, 0.25);
 
     position: fixed;
     inset: 0;
@@ -25,12 +30,12 @@
 }
 
 .dark .starfield {
-    --space-bg: linear-gradient(180deg, #0a0e1f 0%, #0d1135 40%, #0f0f23 100%);
-    --aurora-1: rgba(79, 188, 226, 0.15);
-    --aurora-2: rgba(56, 189, 248, 0.12);
-    --aurora-3: rgba(30, 144, 255, 0.08);
+    --space-bg: linear-gradient(180deg, #0a0a14 0%, #0f1328 40%, #121829 100%);
+    --aurora-1: rgba(79, 188, 226, 0.12);
+    --aurora-2: rgba(56, 189, 248, 0.1);
+    --aurora-3: rgba(30, 144, 255, 0.06);
     --star-core: #ffffff;
-    --star-glow: rgba(255, 255, 255, 0.7);
+    --star-glow: rgba(255, 255, 255, 0.65);
 }
 
 .starfield__deep-space {
@@ -129,4 +134,12 @@
     .starfield__aurora {
         transform: none;
     }
+}
+
+/* Light mode: transparent cards only in requested sections */
+html:not(.dark) .contact-section .bg-card,
+html:not(.dark) .projects-section .bg-card,
+html:not(.dark) #about .bg-card {
+    background-color: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(8px);
 }

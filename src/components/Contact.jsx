@@ -46,7 +46,7 @@ export default function Contact() {
     };
 
     return (
-        <section>
+        <section className="contact-section">
             {/* HEADER SCROLL ANIMATION */}
             <motion.div
                 id="contact"
