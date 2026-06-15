@@ -36,10 +36,11 @@ export default function Navbar() {
     const links = [
         { label: "Home", href: "#hero" },
         { label: "About", href: "#about" },
+        { label: "Skills", href: "#skills" },
         { label: "Projects", href: "#projects" },
         // { label: "Certifications", href: "#certifications" },
         // { label: "Competitive", href: "#competitive-programming" },
-        { label: "Testimonials", href: "#testimonials" },
+        // { label: "Testimonials", href: "#testimonials" },
         { label: "Contact", href: "#contact" },
     ];
 
@@ -173,7 +174,7 @@ export default function Navbar() {
                             GitHub
                         </a>
                         <a
-                            href="https://rakibislam22.github.io"
+                            href="https://mdrakibali.me"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="text-muted-foreground hover:text-primary"

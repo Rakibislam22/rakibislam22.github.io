@@ -91,7 +91,7 @@ const InfiniteScrollSkills = ({ skills }) => {
   return (
     <div className="overflow-hidden py-8">
 
-      {/* LEFT → RIGHT */}
+      {/* LEFT TO RIGHT */}
       <motion.div
         className="flex gap-8 mb-8"
         animate={{ x: ["0%", "-100%"] }}
@@ -107,7 +107,7 @@ const InfiniteScrollSkills = ({ skills }) => {
         ))}
       </motion.div>
 
-      {/* RIGHT → LEFT */}
+      {/* RIGHT TO LEFT */}
       <motion.div
         className="flex gap-8"
         animate={{ x: ["-100%", "0%"] }}
@@ -184,7 +184,7 @@ export const SkillsSection = () => {
           ))}
         </div>
 
-        {/* ALL SKILLS — INFINITE SCROLL */}
+        {/* ALL SKILLS - INFINITE SCROLL */}
         {activeCategory === "all" ? (
           <InfiniteScrollSkills skills={skills} />
         ) : (

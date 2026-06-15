@@ -23,7 +23,7 @@ const Header = () => {
         "// Featured: E-commerce, SaaS, Enterprise, Startup MVPs",
         "",
         "developer.connect();",
-        "console.log('🚀 Let's build something exceptional together!');"
+        "console.log('Let\\'s build something exceptional together!');"
     ];
 
     useEffect(() => {
@@ -105,9 +105,9 @@ const Header = () => {
                         </motion.div>
 
                         <motion.div className="mt-6 text-center lg:text-left" variants={{ hidden: { y: 30, opacity: 0 }, visible: { y: 0, opacity: 1, transition: { duration: 0.8 } } }}>
-                            <div className="text-sm text-muted-foreground">
-                                🚀 <span className="text-primary font-semibold">Available Immediately</span> for MERN-Stack and Frontend roles
-                            </div>
+                            <p className="text-sm text-muted-foreground">
+                                <span className="text-primary font-semibold">Available immediately</span> for MERN-stack, React, Next.js, and frontend roles
+                            </p>
                         </motion.div>
                     </div>
 
@@ -164,11 +164,11 @@ const Header = () => {
                                                                 transition={{ duration: 0.8, repeat: Infinity }}
                                                                 className="ml-1 text-primary inline-block"
                                                             >
-                                                                ▊
+                                                                |
                                                             </motion.span>
                                                         </>
                                                     ) : ''}
-                                                    {line === '' && '‎'}
+                                                    {line === '' && '\u00A0'}
                                                 </div>
                                             ))}
                                         </div>

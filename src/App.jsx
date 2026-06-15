@@ -19,13 +19,13 @@ export default function App() {
       <div className="app-content container mx-auto max-w-7xl px-4">
         <Navbar />
         <Header />
-        <main>
+        <main id="main-content" aria-label="Md Rakib Ali portfolio content">
           <About />
           <SkillsSection />
           <Projects />
           {/* <Certifications /> */}
           {/* <CompetitiveProgramming /> */}
-          <Testimonials />
+          {/* <Testimonials /> */}
           <Contact />
         </main>
         <Footer />

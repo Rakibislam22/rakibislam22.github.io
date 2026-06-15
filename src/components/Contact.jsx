@@ -96,9 +96,9 @@ export default function Contact() {
                             </h4>
 
                             <div className="flex justify-center gap-6 text-gray-500 dark:text-gray-400">
-                                <a className="hover:text-primary" href="https://github.com/Rakibislam22"><Github className="w-6 h-6" /></a>
-                                <a className="hover:text-primary" href="https://www.facebook.com/rakibislam.KCN"><Facebook className="w-6 h-6" /></a>
-                                <a className="hover:text-primary" href="https://www.instagram.com/rakibislam789/"><Instagram className="w-6 h-6" /></a>
+                                <a className="hover:text-primary" href="https://github.com/Rakibislam22" aria-label="GitHub profile"><Github className="w-6 h-6" /></a>
+                                <a className="hover:text-primary" href="https://www.facebook.com/rakibislam.KCN" aria-label="Facebook profile"><Facebook className="w-6 h-6" /></a>
+                                <a className="hover:text-primary" href="https://www.instagram.com/rakibislam789/" aria-label="Instagram profile"><Instagram className="w-6 h-6" /></a>
                             </div>
                         </div>
                     </motion.div>

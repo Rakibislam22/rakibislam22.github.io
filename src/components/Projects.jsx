@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 export default function Projects() {
     const projects = [
         {
-            title: "ConvoX – Real-Time Platform",
+            title: "ConvoX - Real-Time Platform",
             desc: "A full-stack real-time collaboration and messaging platform with a Next.js frontend and a production-grade Node.js backend.",
             img: "convox.png",
             tags: [
@@ -23,7 +23,6 @@ export default function Projects() {
                 "Next.js client with protected routes, Auth/Socket context, and real-time chat UI",
                 "Direct messaging and group chat with ",
                 "Workspaces and channels plus a social feed",
-                "Audio calls powered by LiveKit and file uploads to Cloudflare",
             ],
             live_link: "https://convox-chat.vercel.app",
             repo_link: "https://github.com/the-team-undefined",
@@ -47,7 +46,6 @@ export default function Projects() {
                 "Scholarship discovery by category, country, and deadline",
                 "Application workflow with submission management",
                 "User dashboard to manage scholarships",
-                "Responsive UI styled with TailwindCSS ",
             ],
             live_link: "https://scholarstream-1.web.app/",
             repo_link: "https://github.com/Rakibislam22/ScholarStream-Client",
@@ -62,7 +60,6 @@ export default function Projects() {
                 "Full-stack Next.js (App Router) frontend with an Express.js backend",
                 "MongoDB for data storage",
                 "Authentication via NextAuth",
-                "Dynamic product creation/deletion and responsive UI",
             ],
             live_link: "https://first-next-app-ten-lac.vercel.app",
             repo_link: "https://github.com/Rakibislam22/first-next-app",
@@ -76,8 +73,7 @@ export default function Projects() {
             bullets: [
                 "Movie discovery UI with animated/responsive interactions",
                 "Firebase Authentication integration",
-                "Carousel/slider functionality via Swiper",
-                "Polished UI using TailwindCSS / DaisyUI"
+                "Carousel/slider functionality via Swiper"
             ],
             live_link: "https://movie-master-pro-8f1b1.web.app/",
             repo_link: "https://github.com/Rakibislam22/MovieMasterPro-Client",
@@ -91,8 +87,7 @@ export default function Projects() {
             bullets: [
                 "Plant-focused web app built with React",
                 "Authentication using Firebase Auth",
-                "State management with Context API",
-                "Routing with React Router",
+                "State management with Context API"
             ],
             live_link: "https://green-nest-2025.web.app/",
             repo_link: "https://github.com/Rakibislam22/Green-Nest",
@@ -106,8 +101,7 @@ export default function Projects() {
             bullets: [
                 "Eco-themed landing page to promote environmental awareness",
                 "Built with semantic HTML5 and TailwindCSS",
-                "UI components styled with DaisyUI",
-                "Responsive layout and small footprint",
+                "UI components styled with DaisyUI"
             ],
             live_link: "https://greeenearth.netlify.app/",
             repo_link: "https://github.com/Rakibislam22/GreenEarth",
@@ -165,9 +159,12 @@ export default function Projects() {
                             transition={{ duration: 0.3 }}
                         >
                             <img
-                                alt={`${p.title} screenshot`}
+                                alt={`${p.title} project screenshot by Md Rakib Ali`}
                                 className="rounded-lg h-48 w-full object-cover"
                                 src={p.img}
+                                width="640"
+                                height="360"
+                                loading="lazy"
                             />
 
                             {p.featured && (

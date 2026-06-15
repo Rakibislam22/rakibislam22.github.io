@@ -96,12 +96,12 @@ const About = () => {
                         <span className="text-base font-semibold text-primary tracking-wide">ABOUT ME</span>
                     </div>
 
-                    <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6">
+                    <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6">
                         <span className="bg-gradient-to-r from-foreground to-primary bg-clip-text text-transparent">
                             Transforming
                         </span>
                         <span className="block text-primary animate-pulse">Ideas Into Reality</span>
-                    </h1>
+                    </h2>
 
                     <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
                         Building digital experiences with innovation, performance, and elegance.
@@ -128,7 +128,7 @@ const About = () => {
                                 {/* Profile */}
                                 <div className="relative">
                                     <div className="w-32 h-32 rounded-2xl overflow-hidden border-4 border-primary/20 shadow-xl">
-                                        <img src="/profile-logo.jpg" alt="MD Rakib" className="w-full h-full object-cover" />
+                                        <img src="/profile-logo.jpg" alt="Md Rakib Ali, MERN stack developer" className="w-full h-full object-cover" width="128" height="128" loading="lazy" />
                                     </div>
                                     <span className="absolute -bottom-2 -right-2 w-8 h-8 bg-green-500 rounded-full border-4 border-background animate-pulse" />
                                 </div>
@@ -301,7 +301,7 @@ const About = () => {
                             </div>
 
                             <p className="text-xs text-muted-foreground text-center bg-card p-2 rounded-lg">
-                                ⚡ Response time: Under 24 hours
+                                Response time: Under 24 hours
                             </p>
                         </motion.div>
 

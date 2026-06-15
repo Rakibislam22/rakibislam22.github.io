@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://rakibislam22.github.io/sitemap.xml
+Sitemap: https://mdrakibali.me/sitemap.xml
