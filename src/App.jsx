@@ -10,26 +10,29 @@ import Contact from "./components/Contact";
 import { Footer } from "./components/Footer";
 import Navbar from "./components/Navbar";
 import StarfieldBackground from "./components/StarfieldBackground";
+import SmoothScroll from "./components/SmoothScroll";
 import "./App.css";
 
 export default function App() {
   return (
-    <div className="app-shell">
-      <StarfieldBackground />
-      <div className="app-content container mx-auto max-w-7xl px-4">
-        <Navbar />
-        <Header />
-        <main id="main-content" aria-label="Md Rakib Ali portfolio content">
-          <About />
-          <SkillsSection />
-          <Projects />
-          {/* <Certifications /> */}
-          {/* <CompetitiveProgramming /> */}
-          {/* <Testimonials />  */}
-          <Contact />
-        </main>
-        <Footer />
+    <SmoothScroll>
+      <div className="app-shell">
+        <StarfieldBackground />
+        <div className="app-content container mx-auto max-w-7xl px-4">
+          <Navbar />
+          <Header />
+          <main id="main-content" aria-label="Md Rakib Ali portfolio content">
+            <About />
+            <SkillsSection />
+            <Projects />
+            {/* <Certifications /> */}
+            {/* <CompetitiveProgramming /> */}
+            {/* <Testimonials />  */}
+            <Contact />
+          </main>
+          <Footer />
+        </div>
       </div>
-    </div>
+    </SmoothScroll>
   );
 }
