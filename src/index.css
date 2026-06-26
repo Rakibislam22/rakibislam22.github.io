@@ -2,7 +2,7 @@
 
 @layer base {
     html {
-        scroll-behavior: smooth;
+        scroll-padding-top: 5rem;
         background: linear-gradient(180deg, #f5f9ff 0%, #e8f1ff 50%, #dce5f5 100%);
         color: #1a1a1a;
     }
@@ -10,6 +10,12 @@
     html.dark {
         background: #0a0a14;
         color: #e0e0e0;
+    }
+}
+
+@layer utilities {
+    section[id] {
+        scroll-margin-top: 5rem;
     }
 }
 
