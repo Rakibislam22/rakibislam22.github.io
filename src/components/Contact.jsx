@@ -8,6 +8,7 @@ export default function Contact() {
         name: "",
         email: "",
         message: "",
+        time: new Date().toLocaleString()
     });
 
     const [status, setStatus] = useState("");
@@ -32,7 +33,7 @@ export default function Contact() {
             .then(
                 () => {
                     setStatus("Message sent successfully!");
-                    setFormData({ name: "", email: "", message: "" });
+                    setFormData({ name: "", email: "", message: "", time: new Date().toLocaleString() });
                     setLoading(false);
                     setTimeout(() => {
                         setStatus("");
