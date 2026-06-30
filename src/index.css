@@ -2,7 +2,7 @@
 
 @layer base {
     html {
-        scroll-padding-top: 5rem;
+        scroll-behavior: smooth;
         background: linear-gradient(180deg, #f5f9ff 0%, #e8f1ff 50%, #dce5f5 100%);
         color: #1a1a1a;
     }
