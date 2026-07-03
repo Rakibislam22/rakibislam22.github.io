@@ -1,6 +1,11 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
+/* Tailwind v4 a custom color define korar niyom */
+@theme {
+    --color-primary: #A020F0; /* Ekhan thekei 'from-primary' color ta pabe */
+}
+
 @layer base {
     html {
         scroll-behavior: smooth;

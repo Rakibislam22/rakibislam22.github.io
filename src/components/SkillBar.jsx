@@ -42,11 +42,12 @@ const skills = [
   { name: "MySQL", level: 90, category: "tools", icon: "mysql" },
 ];
 
+/* FIXED: Tailwind string er bodole direct CSS gradient, so NPM can never purge it */
 const categories = [
-  { id: "all", label: "All Skills", color: "bg-gradient-to-r from-purple-500 to-pink-500" },
-  { id: "frontend", label: "Frontend", color: "bg-gradient-to-r from-blue-500 to-cyan-500" },
-  { id: "backend", label: "Backend", color: "bg-gradient-to-r from-green-500 to-emerald-500" },
-  { id: "tools", label: "Tools", color: "bg-gradient-to-r from-orange-500 to-yellow-500" },
+  { id: "all", label: "All Skills", gradient: "linear-gradient(to right, #a855f7, #ec4899)" },
+  { id: "frontend", label: "Frontend", gradient: "linear-gradient(to right, #3b82f6, #06b6d4)" },
+  { id: "backend", label: "Backend", gradient: "linear-gradient(to right, #22c55e, #10b981)" },
+  { id: "tools", label: "Tools", gradient: "linear-gradient(to right, #f97316, #eab308)" },
 ];
 
 const iconImages = {
@@ -68,22 +69,27 @@ const iconImages = {
   mysql: MySQLIcon,
 };
 
-const SkillBar = ({ level }) => (
-  <div className="w-full h-3 bg-secondary/20 rounded-full overflow-hidden">
-    <motion.div
-      initial={{ width: 0 }}
-      whileInView={{ width: `${level}%` }}
-      transition={{ duration: 1.5, delay: 0.2 }}
-      viewport={{ once: true }}
-      className={`h-full rounded-full ${level > 75
-        ? "bg-gradient-to-r from-green-400 to-emerald-500"
-        : level > 50
-          ? "bg-gradient-to-r from-yellow-400 to-amber-500"
-          : "bg-gradient-to-r from-red-400 to-pink-500"
-        }`}
-    />
-  </div>
-);
+const SkillBar = ({ level }) => {
+  /* FIXED: Dynamic Tailwind gradient replaced with pure CSS inline styles to survive NPM build */
+  const getGradient = (lvl) => {
+    if (lvl > 75) return "linear-gradient(to right, #4ade80, #10b981)";
+    if (lvl > 50) return "linear-gradient(to right, #facc15, #f59e0b)";
+    return "linear-gradient(to right, #f87171, #ec4899)";
+  };
+
+  return (
+    <div className="w-full h-3 bg-secondary/20 rounded-full overflow-hidden">
+      <motion.div
+        initial={{ width: 0 }}
+        whileInView={{ width: `${level}%` }}
+        transition={{ duration: 1.5, delay: 0.2 }}
+        viewport={{ once: true }}
+        className="h-full rounded-full"
+        style={{ backgroundImage: getGradient(level) }}
+      />
+    </div>
+  );
+};
 
 const InfiniteScrollSkills = ({ skills }) => {
   const duplicatedSkills = [...skills, ...skills, ...skills];
@@ -124,7 +130,6 @@ const InfiniteScrollSkills = ({ skills }) => {
       </motion.div>
 
     </div>
-
   );
 };
 
@@ -154,7 +159,7 @@ export const SkillsSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-20"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/80">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-primary">
             My Skills
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
@@ -172,10 +177,13 @@ export const SkillsSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1, duration: 0.5 }}
-              className={`px-6 py-2.5 rounded-full font-medium border border-transparent hover:shadow-lg ${activeCategory === category.id
-                ? `${category.color} text-white shadow-md`
+              /* FIXED: Removed the dynamic array string, added inline style for active background */
+              className={`px-6 py-2.5 rounded-full font-medium border border-transparent hover:shadow-lg transition-all ${
+                activeCategory === category.id
+                ? "text-white shadow-md"
                 : "bg-secondary/50 text-foreground hover:bg-secondary/70"
-                }`}
+              }`}
+              style={activeCategory === category.id ? { backgroundImage: category.gradient } : {}}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
