@@ -131,16 +131,18 @@ function Certifications() {
                         </div>
 
                         {cert.credentialUrl && (
-                            <a
-                                href={cert.credentialUrl}
-                                target="_blank"
-                                rel="noreferrer"
-                                aria-label={`View ${cert.title} certificate`}
-                                className="flex items-center justify-center gap-2 bg-primary-gradient text-white font-semibold py-2.5 px-4 rounded-lg hover:opacity-90 transition-opacity"
-                            >
-                                <span>View Certificate</span>
-                                <ExternalLink className="h-4 w-4" aria-hidden="true" />
-                            </a>
+                            <div className="aura text-primary inline-flex">
+                                <a
+                                    href={cert.credentialUrl}
+                                    target="_blank"
+                                    rel="noreferrer"
+                                    aria-label={`View ${cert.title} certificate`}
+                                    className="flex items-center justify-center gap-2 bg-primary-gradient text-white font-semibold py-2.5 px-4 rounded-lg hover:opacity-90 transition-opacity"
+                                >
+                                    <span>View Certificate</span>
+                                    <ExternalLink className="h-4 w-4" aria-hidden="true" />
+                                </a>
+                            </div>
                         )}
                     </motion.article>
                 ))}

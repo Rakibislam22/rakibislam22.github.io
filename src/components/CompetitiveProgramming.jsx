@@ -201,16 +201,18 @@ function CompetitiveProgramming() {
                             ))}
                         </ul>
 
-                        <a
-                            href={platform.profileUrl}
-                            target="_blank"
-                            rel="noreferrer"
-                            aria-label={`View ${platform.name} profile`}
-                            className="flex items-center justify-center gap-2 bg-primary-gradient text-white font-semibold py-2.5 px-4 rounded-lg hover:opacity-90 transition-opacity"
-                        >
-                            <span>View Profile</span>
-                            <ExternalLink className="h-4 w-4" aria-hidden="true" />
-                        </a>
+                        <div className="aura text-primary inline-flex">
+                            <a
+                                href={platform.profileUrl}
+                                target="_blank"
+                                rel="noreferrer"
+                                aria-label={`View ${platform.name} profile`}
+                                className="flex items-center justify-center gap-2 bg-primary-gradient text-white font-semibold py-2.5 px-4 rounded-lg hover:opacity-90 transition-opacity"
+                            >
+                                <span>View Profile</span>
+                                <ExternalLink className="h-4 w-4" aria-hidden="true" />
+                            </a>
+                        </div>
                     </motion.article>
                 ))}
             </motion.div>

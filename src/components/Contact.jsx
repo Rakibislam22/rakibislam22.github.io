@@ -163,22 +163,24 @@ export default function Contact() {
                             </div>
 
                             {/* SUBMIT BUTTON WITH LOADING */}
-                            <button
-                                disabled={loading}
-                                className="w-full flex items-center justify-center gap-2 bg-primary-gradient text-white font-semibold py-3 px-6 rounded-lg shadow-lg transition-all disabled:opacity-60 disabled:cursor-not-allowed"
-                                type="submit"
-                            >
-                                {loading ? (
-                                    <>
-                                        <Loader2 className="animate-spin" size={20} />
-                                        Sending...
-                                    </>
-                                ) : (
-                                    <>
-                                        Send Message <Send size={18} />
-                                    </>
-                                )}
-                            </button>
+                            <div className="aura text-primary w-full">
+                                <button
+                                    disabled={loading}
+                                    className="w-full flex items-center justify-center gap-2 bg-primary-gradient text-white font-semibold py-3 px-6 rounded-lg shadow-lg transition-all disabled:opacity-60 disabled:cursor-not-allowed"
+                                    type="submit"
+                                >
+                                    {loading ? (
+                                        <>
+                                            <Loader2 className="animate-spin" size={20} />
+                                            Sending...
+                                        </>
+                                    ) : (
+                                        <>
+                                            Send Message <Send size={18} />
+                                        </>
+                                    )}
+                                </button>
+                            </div>
 
                             {status && <p className="text-center text-sm text-primary mt-2">{status}</p>}
                         </form>

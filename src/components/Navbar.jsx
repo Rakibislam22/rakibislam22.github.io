@@ -75,14 +75,16 @@ export default function Navbar() {
                         </ul>
 
                         <div className="flex items-center gap-3">
-                            <a
-                                href="/Md_Rakib_Ali_Resume.pdf"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="hidden sm:inline-flex items-center gap-2 px-3 py-2 rounded-md bg-primary/90 text-white text-sm font-medium hover:opacity-95 transition"
-                            >
-                                Resume
-                            </a>
+                            <div className="aura text-primary hidden sm:inline-flex">
+                                <a
+                                    href="/Md_Rakib_Ali_Resume.pdf"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="hidden sm:inline-flex items-center gap-2 px-3 py-2 rounded-md bg-primary/90 text-white text-sm font-medium hover:opacity-95 transition"
+                                >
+                                    Resume
+                                </a>
+                            </div>
 
                             {/* Clear, accessible GitHub icon */}
                             <a
@@ -155,14 +157,16 @@ export default function Navbar() {
                         </a>
                     ))}
 
-                    <a
-                        href="/Md_Rakib_Ali_Resume.pdf"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="block mt-1 px-3 py-2 rounded-md bg-primary/90 text-white text-center"
-                    >
-                        Resume
-                    </a>
+                    <div className="aura text-primary block">
+                        <a
+                            href="/Md_Rakib_Ali_Resume.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="block mt-1 px-3 py-2 rounded-md bg-primary/90 text-white text-center"
+                        >
+                            Resume
+                        </a>
+                    </div>
 
                     <div className="flex items-center justify-center gap-4 pt-2">
                         <a

@@ -82,7 +82,7 @@ const Header = () => {
                         </motion.p>
 
                         <motion.div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start py-10" variants={{ hidden: { y: 30, opacity: 0 }, visible: { y: 0, opacity: 1, transition: { duration: 0.8 } } }}>
-                            <motion.a href="#projects" className="text-white group relative overflow-hidden px-8 py-4 rounded-xl font-semibold bg-gradient-to-r from-primary to-purple-600 text-primary-foreground shadow-lg hover:shadow-xl text-sm flex items-center justify-center gap-3" whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.95 }}>
+                            <motion.a href="#projects" className="text-white bg-primary group relative overflow-hidden px-8 py-4 rounded-xl font-semibold text-primary-foreground shadow-lg hover:shadow-xl text-sm flex items-center justify-center gap-3" whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.95 }}>
                                 <Code className="h-5 w-5" />
                                 <span>View Case Studies</span>
                                 <TrendingUp className="h-4 w-4 group-hover:translate-x-1 transition-transform" />

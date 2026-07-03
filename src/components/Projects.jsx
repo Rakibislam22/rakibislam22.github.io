@@ -197,15 +197,17 @@ export default function Projects() {
                         </div>
 
                         <div className="flex gap-4 mt-auto">
-                            <a
-                                className="flex-1 flex items-center justify-center gap-2 bg-primary-gradient text-white font-semibold py-2.5 px-4 rounded-lg hover:opacity-90 transition-opacity"
-                                target="_blank"
-                                rel="noreferrer"
-                                href={p.live_link}
-                            >
-                                <span className="material-symbols-outlined text-base">visibility</span>
-                                Live Demo
-                            </a>
+                            <div className="aura text-primary flex-1">
+                                <a
+                                    className="flex-1 flex items-center justify-center gap-2 bg-primary-gradient text-white font-semibold py-2.5 px-4 rounded-lg hover:opacity-90 transition-opacity"
+                                    target="_blank"
+                                    rel="noreferrer"
+                                    href={p.live_link}
+                                >
+                                    <span className="material-symbols-outlined text-base">visibility</span>
+                                    Live Demo
+                                </a>
+                            </div>
 
                             <a
                                 className="flex-1 flex items-center justify-center gap-2 bg-surface border border-card text-gray-900 dark:text-white font-semibold py-2.5 px-4 rounded-lg hover:bg-gray-200 dark:hover:bg-opacity-20 transition-colors"
