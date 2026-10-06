@@ -54,9 +54,16 @@ function resolvePath(star) {
     };
 }
 
+function getStarCount() {
+    if (typeof window !== "undefined" && window.innerWidth < 768) {
+        return 38;
+    }
+    return 65;
+}
+
 export default function StarfieldBackground() {
     const containerRef = useRef(null);
-    const stars = useMemo(() => createStars(STAR_COUNT), []);
+    const stars = useMemo(() => createStars(getStarCount()), []);
 
     useEffect(() => {
         // No mouse tracking needed, stars animate automatically
