@@ -74,57 +74,57 @@ export default function OSPortfolioPopup() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 30, scale: 0.95 }}
             transition={{ type: "spring", damping: 24, stiffness: 280 }}
-            className="fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-50 w-[calc(100vw-2.5rem)] sm:w-[380px] max-w-full"
+            className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 w-[calc(100vw-2rem)] sm:w-[350px] max-w-full"
             role="dialog"
             aria-label="Secondary OS Portfolio invitation"
           >
-            <div className="relative overflow-hidden rounded-2xl border border-purple-500/30 bg-white/90 dark:bg-[#100f1c]/90 backdrop-blur-xl p-5 shadow-[0_12px_45px_rgba(138,43,226,0.22)] dark:shadow-[0_12px_45px_rgba(160,32,240,0.3)] transition-all">
+            <div className="relative overflow-hidden rounded-2xl border border-purple-500/30 bg-white/95 dark:bg-[#100f1c]/95 backdrop-blur-xl p-3.5 sm:p-4 shadow-[0_10px_35px_rgba(138,43,226,0.2)] dark:shadow-[0_10px_35px_rgba(160,32,240,0.25)] transition-all">
               {/* Subtle top gradient glow line */}
               <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-purple-500 via-indigo-500 to-pink-500" />
 
               {/* Header with pill and close button */}
-              <div className="flex items-center justify-between gap-2 mb-3">
-                <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-purple-500/10 text-primary border border-purple-500/20">
-                  <Sparkles className="w-3 h-3 text-primary animate-pulse" />
-                  Interactive Experience
+              <div className="flex items-center justify-between gap-2 mb-2">
+                <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[11px] font-semibold bg-purple-500/10 text-primary border border-purple-500/20">
+                  <Sparkles className="w-2.5 h-2.5 text-primary animate-pulse" />
+                  Interactive OS
                 </span>
 
                 <button
                   type="button"
                   onClick={handleDismiss}
-                  className="p-1 rounded-lg text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 hover:bg-black/5 dark:hover:bg-white/5 transition cursor-pointer"
+                  className="p-1 rounded-md text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 hover:bg-black/5 dark:hover:bg-white/5 transition cursor-pointer"
                   aria-label="Close popup"
                 >
-                  <X className="w-4 h-4" />
+                  <X className="w-3.5 h-3.5" />
                 </button>
               </div>
 
               {/* Main Content */}
-              <div className="flex items-start gap-3.5 mb-4">
-                <div className="p-2.5 rounded-xl bg-primary/10 border border-primary/20 text-primary shrink-0 mt-0.5">
-                  <Monitor className="w-5 h-5" />
+              <div className="flex items-center gap-3 mb-3">
+                <div className="p-2 rounded-xl bg-primary/10 border border-primary/20 text-primary shrink-0">
+                  <Monitor className="w-4 h-4" />
                 </div>
-                <div>
-                  <h3 className="font-semibold text-base text-gray-900 dark:text-white leading-snug">
-                    Explore My OS Portfolio
+                <div className="min-w-0">
+                  <h3 className="font-semibold text-sm text-gray-900 dark:text-white leading-tight truncate">
+                    Explore OS Portfolio
                   </h3>
-                  <p className="text-xs text-gray-600 dark:text-gray-300 mt-1 leading-relaxed">
-                    Check out my secondary desktop-style portfolio featuring interactive simulated OS environments (macOS, Windows, and Ubuntu).
+                  <p className="text-[11px] sm:text-xs text-gray-600 dark:text-gray-300 mt-0.5 leading-snug line-clamp-2">
+                    Simulated macOS, Windows & Ubuntu environment.
                   </p>
                 </div>
               </div>
 
               {/* Actions */}
-              <div className="space-y-2">
+              <div className="space-y-1.5">
                 <div className="aura text-primary w-full">
                   <a
                     href="https://dev.mdrakibali.me/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2 w-full py-2.5 px-4 rounded-xl bg-primary/90 hover:bg-primary text-white font-medium text-sm transition shadow-md shadow-purple-500/20 active:scale-[0.98]"
+                    className="flex items-center justify-center gap-1.5 w-full py-1.5 sm:py-2 px-3 rounded-xl bg-primary/90 hover:bg-primary text-white font-medium text-xs sm:text-sm transition shadow-sm shadow-purple-500/20 active:scale-[0.98]"
                   >
                     <span>Launch OS Portfolio</span>
-                    <ExternalLink className="w-4 h-4" />
+                    <ExternalLink className="w-3.5 h-3.5" />
                   </a>
                 </div>
 
@@ -132,7 +132,7 @@ export default function OSPortfolioPopup() {
                   <button
                     type="button"
                     onClick={handleDismiss}
-                    className="text-xs text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition hover:underline cursor-pointer"
+                    className="text-[11px] text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition hover:underline cursor-pointer py-0.5"
                   >
                     Maybe later
                   </button>
