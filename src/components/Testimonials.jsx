@@ -5,18 +5,18 @@ export default function Testimonials() {
     const items = [
         {
             quote: `Working with Sahil was seamless from day one. Not only did they deliver a full-stack solution ahead of schedule, but they also communicated clearly throughout the project. It's rare to find a developer who understands both the tech and the business side so well`,
-            name: "Alex Johnson",
+            name: "Pranta Kumer Pandit",
             role: "Product Director at TechCorp"
         },
         {
             quote: `I've reviewed hundreds of portfolios, and this work is truly exceptional. The animations while maintaining performance is masterful. The design elements add depth without overwhelming.`,
-            name: "Maria Chen",
+            name: "Ismail Hossain Shizan",
             role: "Senior UX Designer at DesignHub"
-            
+
         },
         {
             quote: `From wireframes to deployment, Sahil owned the entire stack with confidence and creativity. The final product is fast, reliable, and looks incredible. I wouldn't hesitate to work with them again.`,
-            name: "David Wilson",
+            name: "Md Jobaer Islam Alif",
             role: "CTO at Startup Ventures"
         }
     ];
@@ -62,7 +62,7 @@ export default function Testimonials() {
                 </h2>
 
                 <p className="mt-4 text-lg text-gray-600 dark:text-gray-400">
-                    What Clients Will Say About Working With Me.
+                    What Clients and Teammates Will Say About Working With Me.
                 </p>
             </motion.div>
 
