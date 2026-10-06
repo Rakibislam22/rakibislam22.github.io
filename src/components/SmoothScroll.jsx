@@ -12,7 +12,7 @@ import "lenis/dist/lenis.css";
 function SmoothScroll({ children }) {
   const options = {
     lerp: 0.08, // Adjust this value for more or less smoothness. Lower is smoother.
-    syncTouch: false, // Allows native momentum scrolling on touch devices for maximum performance.
+    syncTouch: true, // Mimics the smooth scroll effect on touch devices.
   };
 
   // The `root` prop applies the smooth scroll to the entire page (<html>).
