@@ -11,6 +11,7 @@ import { Footer } from "./components/Footer";
 import Navbar from "./components/Navbar";
 import StarfieldBackground from "./components/StarfieldBackground";
 import SmoothScroll from "./components/SmoothScroll";
+import OSPortfolioPopup from "./components/OSPortfolioPopup";
 import "./App.css";
 
 export default function App() {
@@ -32,6 +33,7 @@ export default function App() {
           </main>
           <Footer />
         </div>
+        <OSPortfolioPopup />
       </div>
     </SmoothScroll>
   );
