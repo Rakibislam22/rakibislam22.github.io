@@ -28,8 +28,8 @@ const About = () => {
 
     const techStack = [
         { category: "Frontend", items: ["React", "Next.js", "TypeScript", "JavaScript", "HTML", "Tailwind"] },
-        { category: "Backend", items: ["Node.js", "Express"] },
-        { category: "Cloud", items: ["Vercel", "MongoDB"] }
+        { category: "Backend", items: ["Node.js", "Express", "Python", "Django"] },
+        { category: "Cloud", items: ["Vercel", "MongoDB", "NeonDB", "Redis", "Render", "Railway"] }
     ];
 
     const features = [
@@ -120,7 +120,7 @@ const About = () => {
                             initial="hidden"
                             whileInView="visible"
                             viewport={{ once: true, amount: 0.2 }}
-                            className="bg-card border border-border rounded-3xl p-8 backdrop-blur-xl shadow-2xl"
+                            className="bg-card border border-card rounded-3xl p-8 backdrop-blur-xl shadow-2xl"
                         >
 
                             <div className="flex flex-col md:flex-row items-center gap-8">
@@ -142,7 +142,7 @@ const About = () => {
                                         {achievements.map((a, i) => (
                                             <div key={i}
                                                 className={`p-3 rounded-xl border bg-card transition 
-                                                ${counter === i ? "bg-primary/10 border-primary/50" : "border-border"}`}>
+                                                ${counter === i ? "bg-primary/10 border-primary/50" : "border-card"}`}>
                                                 <div className="flex items-center gap-3">
                                                     {a.icon}
                                                     <div>
@@ -195,7 +195,7 @@ const About = () => {
                             initial="hidden"
                             whileInView="visible"
                             viewport={{ once: true, amount: 0.2 }}
-                            className="bg-card border border-border rounded-3xl p-8 backdrop-blur-xl shadow-2xl"
+                            className="bg-card border border-card rounded-3xl p-8 backdrop-blur-xl shadow-2xl"
                         >
                             <h3 className="text-2xl font-bold mb-6 flex items-center gap-3">
                                 <Code className="h-6 w-6 text-primary" /> Tech Stack Overview
@@ -203,7 +203,7 @@ const About = () => {
 
                             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                                 {techStack.map((stack, i) => (
-                                    <div key={i} className="p-6 rounded-2xl border bg-card hover:border-primary/30 transition">
+                                    <div key={i} className="p-6 rounded-2xl border border-card bg-card hover:border-primary/50 transition">
                                         <h4 className="font-semibold text-lg mb-4 text-surface">{stack.category}</h4>
                                         <div className="space-y-2">
                                             {stack.items.map((item, idx) => (
@@ -229,7 +229,7 @@ const About = () => {
                             initial="hidden"
                             whileInView="visible"
                             viewport={{ once: true, amount: 0.2 }}
-                            className="bg-card border border-border rounded-3xl p-8 backdrop-blur-xl shadow-2xl"
+                            className="bg-card border border-card rounded-3xl p-8 backdrop-blur-xl shadow-2xl"
                         >
                             <h3 className="text-2xl font-bold mb-6 text-center text-surface">Let's Work Together</h3>
 
@@ -242,13 +242,13 @@ const About = () => {
 
                                 <button
                                     onClick={handleDownload}
-                                    className="flex-1 p-4 border border-border rounded-xl text-center font-semibold hover:bg-accent">
+                                    className="flex-1 p-4 border border-card rounded-xl text-center font-semibold hover:bg-accent">
                                     <Download className="inline-block mr-2" />
                                     Download Resume
                                 </button>
                             </div>
 
-                            <div className="mt-6 bg-card border border-border p-4 rounded-xl text-center">
+                            <div className="mt-6 bg-card border border-card p-4 rounded-xl text-center">
                                 <h4 className="font-semibold mb-2 text-surface">Quick Connect</h4>
                                 <div className="flex justify-center gap-4">
                                     {socialLinks.map((s, i) => (
@@ -266,7 +266,7 @@ const About = () => {
                             initial="hidden"
                             whileInView="visible"
                             viewport={{ once: true, amount: 0.25 }}
-                            className="bg-card border border-border rounded-3xl p-6 backdrop-blur-xl shadow-2xl"
+                            className="bg-card border border-card rounded-3xl p-6 backdrop-blur-xl shadow-2xl"
                         >
                             <h3 className="text-xl font-bold mb-4 flex items-center gap-2 text-surface">
                                 <Star className="h-5 w-5 text-primary" /> Why Choose Me
@@ -288,7 +288,7 @@ const About = () => {
                             initial="hidden"
                             whileInView="visible"
                             viewport={{ once: true, amount: 0.25 }}
-                            className="bg-card border border-border rounded-3xl p-6 backdrop-blur-xl shadow-2xl"
+                            className="bg-card border border-card rounded-3xl p-6 backdrop-blur-xl shadow-2xl"
                         >
                             <div className="flex items-center justify-between mb-3">
                                 <div className="flex items-center gap-3">
