@@ -70,13 +70,16 @@ export default function Testimonials() {
                 variants={containerVariant}
                 initial="hidden"
                 whileInView="show"
-                viewport={{ once: true, amount: 0.2 }}
+                viewport={{ once: true, amount: 0.05, margin: "100px" }}
                 className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
             >
                 {items.map((t) => (
                     <motion.div
                         key={t.name}
                         variants={cardVariant}
+                        initial="hidden"
+                        whileInView="show"
+                        viewport={{ once: true, amount: 0.08 }}
                         whileHover={{ scale: 1.03 }}
                         transition={{ duration: 0.3 }}
                         className="bg-card-light dark:bg-card-dark border border-card-light dark:border-card-dark p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all"

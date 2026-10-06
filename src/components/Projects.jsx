@@ -144,13 +144,16 @@ export default function Projects() {
                 variants={containerVariant}
                 initial="hidden"
                 whileInView="show"
-                viewport={{ once: true, amount: 0.2 }}
+                viewport={{ once: true, amount: 0.02, margin: "100px" }}
                 className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
             >
                 {projects.map((p) => (
                     <motion.article
                         key={p.title}
                         variants={cardVariant}
+                        initial="hidden"
+                        whileInView="show"
+                        viewport={{ once: true, amount: 0.08 }}
                         className="bg-card border border-card p-6 rounded-2xl flex flex-col hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
                     >
                         <motion.div
@@ -161,7 +164,7 @@ export default function Projects() {
                             <img
                                 alt={`${p.title} project screenshot by Md Rakib Ali`}
                                 className="rounded-lg h-48 w-full object-cover"
-                                src={p.img}
+                                src={p.img.startsWith('/') ? p.img : `/${p.img}`}
                                 width="640"
                                 height="360"
                                 loading="lazy"
