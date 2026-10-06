@@ -165,6 +165,7 @@ export default function Projects() {
                                 width="640"
                                 height="360"
                                 loading="lazy"
+                                decoding="async"
                             />
 
                             {p.featured && (

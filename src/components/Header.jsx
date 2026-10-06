@@ -224,7 +224,11 @@ const Header = () => {
                                                 src="/profile-logo.jpg"
                                                 alt="Md Rakib Ali profile logo"
                                                 className="w-full h-full object-contain bg-background/70 p-8"
-                                                loading="lazy"
+                                                loading="eager"
+                                                fetchPriority="high"
+                                                decoding="async"
+                                                width="350"
+                                                height="350"
                                             />
                                         </figure>
                                         <div></div>
