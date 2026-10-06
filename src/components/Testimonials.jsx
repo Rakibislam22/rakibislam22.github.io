@@ -4,20 +4,19 @@ import { motion } from "framer-motion";
 export default function Testimonials() {
     const items = [
         {
-            quote: `Working with Sahil was seamless from day one. Not only did they deliver a full-stack solution ahead of schedule, but they also communicated clearly throughout the project. It's rare to find a developer who understands both the tech and the business side so well`,
-            name: "Pranta Kumer Pandit",
-            role: "Product Director at TechCorp"
-        },
-        {
-            quote: `I've reviewed hundreds of portfolios, and this work is truly exceptional. The animations while maintaining performance is masterful. The design elements add depth without overwhelming.`,
-            name: "Ismail Hossain Shizan",
-            role: "Senior UX Designer at DesignHub"
-
-        },
-        {
-            quote: `From wireframes to deployment, Sahil owned the entire stack with confidence and creativity. The final product is fast, reliable, and looks incredible. I wouldn't hesitate to work with them again.`,
+            quote: `Collaborating with Rakib on our academic and team projects was an awesome experience. He quickly breaks down tough backend problems and delivers reliable, clean solutions on time. A genuinely dedicated teammate.`,
             name: "Md Jobaer Islam Alif",
-            role: "CTO at Startup Ventures"
+            role: "Software Engineering Intern"
+        },
+        {
+            quote: `Working with Rakib on frontend development is effortless. He brings designs to life with slick animations and responsive layouts while keeping the codebase neat and fast. He really cares about user experience.`,
+            name: "Ismail Hossain Shizan",
+            role: "UI/UX & Frontend Collaborator"
+        },
+        {
+            quote: `From architecting databases to managing deployment, Rakib handles full-stack challenges with confidence. Whenever our team hit a roadblock, he was always ready to debug and find the right solution.`,
+            name: "Pranta Kumer Pandit",
+            role: "Full-Stack Project Partner"
         }
     ];
 
@@ -54,7 +53,7 @@ export default function Testimonials() {
             >
                 <span className="inline-flex items-center gap-2 bg-card-light dark:bg-card-dark border border-card-light dark:border-card-dark rounded-full px-4 py-1.5 text-sm mb-4">
                     <span className="material-symbols-outlined text-primary text-base">reviews</span>
-                    Client Feedback
+                    Teammate Feedback
                 </span>
 
                 <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white">
@@ -62,7 +61,7 @@ export default function Testimonials() {
                 </h2>
 
                 <p className="mt-4 text-lg text-gray-600 dark:text-gray-400">
-                    What Clients and Teammates Will Say About Working With Me.
+                    What Teammates Will Say About Working With Me.
                 </p>
             </motion.div>
 
