@@ -26,7 +26,7 @@ export default function App() {
             <About />
             <SkillsSection />
             <Projects />
-            {/* <Certifications /> */}
+            <Certifications />
             {/* <CompetitiveProgramming /> */}
             <Testimonials />
             <Contact />
