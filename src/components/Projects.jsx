@@ -69,26 +69,26 @@ export default function Projects() {
             repo_link: "https://github.com/Rakibislam22/ScholarStream-Client",
         },
         {
-            title: "NextLevel Shop",
-            desc: "A modern full-stack Next.js + Express.js + MongoDB application for managing products with secure authentication, product creation, deletion.",
-            img: "a.png",
-            categories: ["featured", "fullstack", "saas"],
+            title: "Smart Bachelor Life",
+            desc: "A MERN-stack roommate and mess management platform for meal tracking, shared utility bills, and monthly cost calculation.",
+            img: "g.png",
+            categories: ["fullstack", "saas"],
             featured: true,
-            tags: ["TypeScript", "axios", "express", "nextauth", "nextjs", "tailwindcss"],
+            tags: ["React", "Node.js", "Express.js", "MongoDB", "TailwindCSS", "Firebase Auth"],
             bullets: [
-                "Full-stack Next.js (App Router) frontend with an Express.js backend",
-                "MongoDB for data storage and product catalog",
-                "Authentication via NextAuth with role-based access",
+                "Automated meal calculation and monthly cost breakdown",
+                "Role-based manager and member dashboard",
+                "Live balance tracking and shared utility ledger"
             ],
-            live_link: "https://first-next-app-ten-lac.vercel.app",
-            repo_link: "https://github.com/Rakibislam22/first-next-app",
+            live_link: "https://smart-bachelor-life.web.app/",
+            repo_link: "https://github.com/Rakibislam22/Smart-bachelor-life",
         },
         {
             title: "Movie Master Pro",
             desc: "Movie Master Pro is a modern, animated, and responsive movie discovery web application built using React + Vite.",
             img: "b.png",
             categories: ["frontend"],
-            featured: false,
+            featured: true,
             tags: ["JavaScript", "react", "vite", "daisyui", "firebase-auth", "tailwind"],
             bullets: [
                 "Movie discovery UI with animated/responsive interactions",
@@ -97,6 +97,21 @@ export default function Projects() {
             ],
             live_link: "https://movie-master-pro-8f1b1.web.app/",
             repo_link: "https://github.com/Rakibislam22/MovieMasterPro-Client",
+        },
+        {
+            title: "NextLevel Shop",
+            desc: "A modern full-stack Next.js + Express.js + MongoDB application for managing products with secure authentication, product creation, deletion.",
+            img: "a.png",
+            categories: ["featured", "fullstack", "saas"],
+            featured: false,
+            tags: ["TypeScript", "axios", "express", "nextauth", "nextjs", "tailwindcss"],
+            bullets: [
+                "Full-stack Next.js (App Router) frontend with an Express.js backend",
+                "MongoDB for data storage and product catalog",
+                "Authentication via NextAuth with role-based access",
+            ],
+            live_link: "https://first-next-app-ten-lac.vercel.app",
+            repo_link: "https://github.com/Rakibislam22/first-next-app",
         },
         {
             title: "Green Nest",
@@ -129,24 +144,9 @@ export default function Projects() {
             repo_link: "https://github.com/Rakibislam22/GreenEarth",
         },
         {
-            title: "Smart Bachelor Life",
-            desc: "A MERN-stack roommate and mess management platform for meal tracking, shared utility bills, and monthly cost calculation.",
-            img: "e.png",
-            categories: ["fullstack", "saas"],
-            featured: false,
-            tags: ["React", "Node.js", "Express.js", "MongoDB", "TailwindCSS", "Firebase Auth"],
-            bullets: [
-                "Automated meal calculation and monthly cost breakdown",
-                "Role-based manager and member dashboard",
-                "Live balance tracking and shared utility ledger"
-            ],
-            live_link: "https://smart-bachelor-life.web.app/",
-            repo_link: "https://github.com/Rakibislam22/Smart-bachelor-life",
-        },
-        {
             title: "Smart Print Plus",
             desc: "A full-stack document printing and order tracking platform with instant pricing calculations and file uploads.",
-            img: "f.png",
+            img: "h.png",
             categories: ["fullstack", "saas"],
             featured: false,
             tags: ["React", "Express.js", "MongoDB", "Node.js", "TailwindCSS", "Cloudinary"],
@@ -155,8 +155,8 @@ export default function Projects() {
                 "Order status tracking from submission to fulfillment",
                 "Admin dashboard to manage queue and printing jobs"
             ],
-            live_link: "https://smart-print-plus.web.app/",
-            repo_link: "https://github.com/Rakibislam22/smart-print-plus",
+            live_link: "https://smart-print-plus-client.vercel.app/",
+            repo_link: "https://github.com/Rakibislam22/Smart-Print-Plus-Client",
         }
     ];
 
@@ -200,11 +200,10 @@ export default function Projects() {
                                 setActiveTab(tab.id);
                                 setShowAll(false);
                             }}
-                            className={`px-5 py-2 sm:px-6 sm:py-2.5 rounded-full text-sm font-semibold transition-all duration-300 cursor-pointer ${
-                                isActive
-                                    ? "bg-primary-gradient text-white shadow-lg shadow-purple-500/25"
-                                    : "bg-card border border-card text-surface/80 hover:text-primary hover:border-primary/40"
-                            }`}
+                            className={`px-5 py-2 sm:px-6 sm:py-2.5 rounded-full text-sm font-semibold transition-all duration-300 cursor-pointer ${isActive
+                                ? "bg-primary-gradient text-white shadow-lg shadow-purple-500/25"
+                                : "bg-card border border-card text-surface/80 hover:text-primary hover:border-primary/40"
+                                }`}
                         >
                             {tab.label}
                         </MotionButton>
