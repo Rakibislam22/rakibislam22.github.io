@@ -87,7 +87,7 @@ export default function Projects() {
             title: "Movie Master Pro",
             desc: "Movie Master Pro is a modern, animated, and responsive movie discovery web application built using React + Vite.",
             img: "b.png",
-            categories: ["frontend"],
+            categories: ["frontend", "fullstack"],
             featured: true,
             tags: ["JavaScript", "react", "vite", "daisyui", "firebase-auth", "tailwind"],
             bullets: [
@@ -103,7 +103,7 @@ export default function Projects() {
             desc: "A modern full-stack Next.js + Express.js + MongoDB application for managing products with secure authentication, product creation, deletion.",
             img: "a.png",
             categories: ["featured", "fullstack", "saas"],
-            featured: false,
+            featured: true,
             tags: ["TypeScript", "axios", "express", "nextauth", "nextjs", "tailwindcss"],
             bullets: [
                 "Full-stack Next.js (App Router) frontend with an Express.js backend",
@@ -142,6 +142,21 @@ export default function Projects() {
             ],
             live_link: "https://greeenearth.netlify.app/",
             repo_link: "https://github.com/Rakibislam22/GreenEarth",
+        },
+        {
+            title: "Hero-IO",
+            desc: "An interactive, responsive frontend web application featuring dynamic UI components, client-side routing, and data visualization.",
+            img: "e.png",
+            categories: ["frontend"],
+            featured: false,
+            tags: ["React", "TailwindCSS", "DaisyUI", "Recharts", "React Router", "Vite"],
+            bullets: [
+                "Interactive and responsive frontend UI built with React and Vite",
+                "Client-side routing and modular component architecture",
+                "Dynamic state management with interactive data dashboards",
+            ],
+            live_link: "https://hero-io-demo.netlify.app/",
+            repo_link: "https://github.com/Rakibislam22/hero-io",
         },
         {
             title: "Smart Print Plus",
