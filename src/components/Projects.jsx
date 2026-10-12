@@ -172,6 +172,21 @@ export default function Projects() {
             ],
             live_link: "https://smart-print-plus-client.vercel.app/",
             repo_link: "https://github.com/Rakibislam22/Smart-Print-Plus-Client",
+        },
+        {
+            title: "CareerTrack Lite",
+            desc: "A full-stack job application tracking SaaS platform featuring user authentication, pipeline analytics, and application management.",
+            img: "i.png",
+            categories: ["fullstack", "saas"],
+            featured: false,
+            tags: ["React", "Node.js", "Express.js", "MongoDB", "TailwindCSS", "Recharts", "Vercel"],
+            bullets: [
+                "End-to-end job application lifecycle tracking with status and source filtering",
+                "Interactive pipeline dashboard with Recharts analytics and stat cards",
+                "Secure JWT authentication, protected routes, and centralized API client",
+            ],
+            live_link: "https://myjob-application.vercel.app/",
+            repo_link: "https://github.com/Rakibislam22/career-track-frontend",
         }
     ];
 
