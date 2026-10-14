@@ -8,6 +8,11 @@ const MotionArticle = motion.article;
 export default function Projects() {
     const [activeTab, setActiveTab] = useState("all");
     const [showAll, setShowAll] = useState(false);
+    const [expandedProject, setExpandedProject] = useState(null);
+
+    const toggleProject = (title) => {
+        setExpandedProject((prev) => (prev === title ? null : title));
+    };
 
     const tabs = [
         { id: "all", label: "All" },
@@ -229,6 +234,7 @@ export default function Projects() {
                             onClick={() => {
                                 setActiveTab(tab.id);
                                 setShowAll(false);
+                                setExpandedProject(null);
                             }}
                             className={`px-5 py-2 sm:px-6 sm:py-2.5 rounded-full text-sm font-semibold transition-all duration-300 cursor-pointer ${isActive
                                 ? "bg-primary-gradient text-white shadow-lg shadow-purple-500/25"
@@ -247,85 +253,270 @@ export default function Projects() {
                 className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
             >
                 <AnimatePresence mode="popLayout">
-                    {displayedProjects.map((p) => (
-                        <MotionArticle
-                            key={p.title}
-                            layout
-                            initial={{ opacity: 0, scale: 0.9 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            exit={{ opacity: 0, scale: 0.9 }}
-                            transition={{ duration: 0.35 }}
-                            className="bg-card border border-card p-6 rounded-2xl flex flex-col hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
-                        >
-                            <div className="relative mb-4 overflow-hidden rounded-lg">
-                                <MotionDiv
-                                    whileHover={{ scale: 1.03 }}
-                                    transition={{ duration: 0.3 }}
+                    {displayedProjects.map((p) => {
+                        const isExpanded = expandedProject === p.title;
+
+                        return (
+                            <MotionArticle
+                                key={p.title}
+                                layout
+                                initial={{ opacity: 0, scale: 0.9 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                exit={{ opacity: 0, scale: 0.9 }}
+                                transition={{ duration: 0.35 }}
+                                className={`group relative bg-card border border-card p-5 sm:p-6 rounded-2xl flex flex-col justify-between transition-all duration-300 hover:shadow-2xl hover:border-primary/40 hover:-translate-y-1 overflow-hidden min-h-[460px] md:min-h-[480px] ${
+                                    isExpanded ? "ring-2 ring-primary/40" : ""
+                                }`}
+                            >
+                                {/* Top Thumbnail Image */}
+                                <div
+                                    className="relative mb-4 overflow-hidden rounded-xl cursor-pointer md:cursor-default"
+                                    onClick={() => toggleProject(p.title)}
                                 >
-                                    <img
-                                        alt={`${p.title} project screenshot by Md Rakib Ali`}
-                                        className="rounded-lg h-48 w-full object-cover"
-                                        src={p.img.startsWith('/') ? p.img : `/${p.img}`}
-                                        width="640"
-                                        height="360"
-                                        loading="lazy"
-                                        decoding="async"
-                                    />
-                                </MotionDiv>
+                                    <MotionDiv
+                                        whileHover={{ scale: 1.03 }}
+                                        transition={{ duration: 0.3 }}
+                                    >
+                                        <img
+                                            alt={`${p.title} project screenshot by Md Rakib Ali`}
+                                            className="rounded-xl h-48 sm:h-52 w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                            src={p.img.startsWith('/') ? p.img : `/${p.img}`}
+                                            width="640"
+                                            height="360"
+                                            loading="lazy"
+                                            decoding="async"
+                                        />
+                                    </MotionDiv>
 
-                                {p.featured && (
-                                    <span className="absolute top-2 right-2 bg-yellow-500 text-white text-xs font-bold px-2 py-1 rounded-full flex items-center gap-1 shadow">
-                                        <span className="material-symbols-outlined text-sm">star</span>
-                                        Featured
-                                    </span>
-                                )}
-                            </div>
+                                    {p.featured && (
+                                        <span className="absolute top-2.5 right-2.5 bg-yellow-500 text-white text-xs font-bold px-2.5 py-1 rounded-full flex items-center gap-1 shadow-md z-10">
+                                            <span className="material-symbols-outlined text-sm">star</span>
+                                            Featured
+                                        </span>
+                                    )}
 
-                            <h3 className="text-xl font-bold text-gray-900 dark:text-white">{p.title}</h3>
-                            <p className="text-sm text-gray-600 dark:text-gray-400 my-2 flex-grow">{p.desc}</p>
+                                    {/* Category Pills on Image */}
+                                    <div className="absolute bottom-2.5 left-2.5 flex flex-wrap gap-1.5 z-10">
+                                        {p.categories?.map((cat) => (
+                                            <span
+                                                key={cat}
+                                                className="bg-black/60 backdrop-blur-md text-white text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-md"
+                                            >
+                                                {cat}
+                                            </span>
+                                        ))}
+                                    </div>
+                                </div>
 
-                            <ul className="space-y-2 text-sm mb-4">
-                                {p.bullets.map((b) => (
-                                    <li key={b} className="flex items-center gap-2">
-                                        <span className="w-1.5 h-1.5 bg-primary rounded-full shrink-0"></span>
-                                        <span className="line-clamp-2">{b}</span>
-                                    </li>
-                                ))}
-                            </ul>
+                                {/* Title & Tech Stack (Visible Initially) */}
+                                <div className="mb-4 flex-grow">
+                                    <h3
+                                        className="text-xl font-bold text-gray-900 dark:text-white group-hover:text-primary transition-colors cursor-pointer md:cursor-default"
+                                        onClick={() => toggleProject(p.title)}
+                                    >
+                                        {p.title}
+                                    </h3>
 
-                            <div className="flex flex-wrap gap-2 mb-4">
-                                {p.tags.map((t) => (
-                                    <span key={t} className="tag text-xs font-semibold px-2 py-1 rounded text-surface">
-                                        {t}
-                                    </span>
-                                ))}
-                            </div>
+                                    {/* Tech Stack Tags - Visible on the card */}
+                                    <div className="flex flex-wrap gap-1.5 my-3">
+                                        {p.tags.map((t) => (
+                                            <span
+                                                key={t}
+                                                className="tag text-[11px] font-medium px-2.5 py-1 rounded-md text-surface border border-card shadow-xs"
+                                            >
+                                                {t}
+                                            </span>
+                                        ))}
+                                    </div>
 
-                            <div className="flex gap-4 mt-auto">
-                                <div className="aura text-primary flex-1">
+                                    <p className="hidden md:flex items-center gap-1.5 text-xs text-gray-500 dark:text-gray-400 mt-2">
+                                        <span className="material-symbols-outlined text-sm text-primary">visibility</span>
+                                        <span>Hover card to view details & features</span>
+                                    </p>
+                                </div>
+
+                                {/* Initial Action Buttons (Live Demo & Code) */}
+                                <div className="flex gap-3 mt-auto pt-2">
+                                    <div className="aura text-primary flex-1">
+                                        <a
+                                            className="flex-1 flex items-center justify-center gap-2 bg-primary-gradient text-white font-semibold py-2.5 px-4 rounded-xl hover:opacity-90 transition-opacity text-sm shadow-md"
+                                            target="_blank"
+                                            rel="noreferrer"
+                                            href={p.live_link}
+                                            onClick={(e) => e.stopPropagation()}
+                                        >
+                                            <span className="material-symbols-outlined text-base">visibility</span>
+                                            Live Demo
+                                        </a>
+                                    </div>
+
                                     <a
-                                        className="flex-1 flex items-center justify-center gap-2 bg-primary-gradient text-white font-semibold py-2.5 px-4 rounded-lg hover:opacity-90 transition-opacity"
+                                        className="flex-1 flex items-center justify-center gap-2 bg-surface border border-card text-gray-900 dark:text-white font-semibold py-2.5 px-4 rounded-xl hover:bg-gray-200 dark:hover:bg-white/10 transition-colors text-sm"
                                         target="_blank"
                                         rel="noreferrer"
-                                        href={p.live_link}
+                                        href={p.repo_link}
+                                        onClick={(e) => e.stopPropagation()}
                                     >
-                                        <span className="material-symbols-outlined text-base">visibility</span>
-                                        Live Demo
+                                        <span className="material-symbols-outlined text-base">code_blocks</span>
+                                        Code
                                     </a>
                                 </div>
 
-                                <a
-                                    className="flex-1 flex items-center justify-center gap-2 bg-surface border border-card text-gray-900 dark:text-white font-semibold py-2.5 px-4 rounded-lg hover:bg-gray-200 dark:hover:bg-opacity-20 transition-colors"
-                                    target="_blank"
-                                    rel="noreferrer"
-                                    href={p.repo_link}
+                                {/* Mobile Only: Toggle Details Button */}
+                                <button
+                                    type="button"
+                                    onClick={() => toggleProject(p.title)}
+                                    className="md:hidden mt-3 w-full py-2 px-3 rounded-xl bg-surface border border-card flex items-center justify-center gap-2 text-xs font-semibold text-gray-700 dark:text-gray-300 hover:text-primary active:scale-[0.98] transition-all cursor-pointer"
+                                    aria-expanded={isExpanded}
                                 >
-                                    <span className="material-symbols-outlined text-base">code_blocks</span>
-                                    Code
-                                </a>
-                            </div>
-                        </MotionArticle>
-                    ))}
+                                    <span className="material-symbols-outlined text-base text-primary">
+                                        {isExpanded ? "unfold_less" : "read_more"}
+                                    </span>
+                                    <span>{isExpanded ? "Hide Details" : "View Details & Tech Stack"}</span>
+                                    <span
+                                        className="material-symbols-outlined text-sm transition-transform duration-300"
+                                        style={{ transform: isExpanded ? "rotate(180deg)" : "rotate(0deg)" }}
+                                    >
+                                        expand_more
+                                    </span>
+                                </button>
+
+                                {/* Mobile Only: Expandable Details Accordion */}
+                                <AnimatePresence>
+                                    {isExpanded && (
+                                        <MotionDiv
+                                            initial={{ opacity: 0, height: 0 }}
+                                            animate={{ opacity: 1, height: "auto" }}
+                                            exit={{ opacity: 0, height: 0 }}
+                                            transition={{ duration: 0.3 }}
+                                            className="md:hidden overflow-hidden pt-4 mt-3 border-t border-card/60 space-y-3"
+                                        >
+                                            <p className="text-xs text-gray-600 dark:text-gray-300 leading-relaxed">
+                                                {p.desc}
+                                            </p>
+
+                                            <div>
+                                                <span className="text-[11px] font-bold uppercase tracking-wider text-gray-400 dark:text-gray-500 block mb-1">
+                                                    Key Features
+                                                </span>
+                                                <ul className="space-y-1.5 text-xs">
+                                                    {p.bullets.map((b) => (
+                                                        <li key={b} className="flex items-start gap-2 text-gray-700 dark:text-gray-300">
+                                                            <span className="w-1.5 h-1.5 bg-primary rounded-full shrink-0 mt-1"></span>
+                                                            <span>{b}</span>
+                                                        </li>
+                                                    ))}
+                                                </ul>
+                                            </div>
+
+                                            <div>
+                                                <span className="text-[11px] font-bold uppercase tracking-wider text-gray-400 dark:text-gray-500 block mb-1">
+                                                    Tech Stack
+                                                </span>
+                                                <div className="flex flex-wrap gap-1.5">
+                                                    {p.tags.map((t) => (
+                                                        <span key={t} className="tag text-[11px] font-medium px-2 py-0.5 rounded text-surface border border-card">
+                                                            {t}
+                                                        </span>
+                                                    ))}
+                                                </div>
+                                            </div>
+                                        </MotionDiv>
+                                    )}
+                                </AnimatePresence>
+
+                                {/* Desktop Only: Hover Details Overlay */}
+                                <div className="hidden md:flex absolute inset-0 z-20 rounded-2xl bg-white/95 dark:bg-[#0c0a15]/95 backdrop-blur-md p-6 flex-col justify-between opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-300 ease-out border border-primary/30 shadow-2xl">
+                                    <div className="overflow-y-auto hide-scrollbar pr-1 space-y-3">
+                                        <div className="flex items-start justify-between gap-2">
+                                            <div>
+                                                <h3 className="text-lg font-bold text-gray-900 dark:text-white">
+                                                    {p.title}
+                                                </h3>
+                                                <div className="flex flex-wrap gap-1 mt-1">
+                                                    {p.categories?.map((cat) => (
+                                                        <span
+                                                            key={cat}
+                                                            className="text-[10px] font-semibold uppercase px-2 py-0.5 rounded-full bg-primary/10 text-primary border border-primary/20"
+                                                        >
+                                                            {cat}
+                                                        </span>
+                                                    ))}
+                                                </div>
+                                            </div>
+                                            {p.featured && (
+                                                <span className="shrink-0 bg-yellow-500 text-white text-[11px] font-bold px-2 py-0.5 rounded-full flex items-center gap-1 shadow-sm">
+                                                    <span className="material-symbols-outlined text-xs">star</span>
+                                                    Featured
+                                                </span>
+                                            )}
+                                        </div>
+
+                                        <p className="text-xs text-gray-600 dark:text-gray-300 leading-relaxed">
+                                            {p.desc}
+                                        </p>
+
+                                        <div>
+                                            <span className="text-[11px] font-bold uppercase tracking-wider text-gray-400 dark:text-gray-500 block mb-1.5">
+                                                Key Highlights
+                                            </span>
+                                            <ul className="space-y-1.5 text-xs">
+                                                {p.bullets.map((b) => (
+                                                    <li key={b} className="flex items-start gap-2 text-gray-700 dark:text-gray-300">
+                                                        <span className="w-1.5 h-1.5 bg-primary rounded-full shrink-0 mt-1"></span>
+                                                        <span className="line-clamp-2 leading-tight">{b}</span>
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        </div>
+
+                                        <div>
+                                            <span className="text-[11px] font-bold uppercase tracking-wider text-gray-400 dark:text-gray-500 block mb-1.5">
+                                                Tech Stack
+                                            </span>
+                                            <div className="flex flex-wrap gap-1.5">
+                                                {p.tags.map((t) => (
+                                                    <span
+                                                        key={t}
+                                                        className="tag text-[11px] font-medium px-2 py-0.5 rounded text-surface border border-card"
+                                                    >
+                                                        {t}
+                                                    </span>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    {/* Bottom Action Buttons inside overlay */}
+                                    <div className="flex gap-3 pt-3 mt-2 border-t border-card/60">
+                                        <div className="aura text-primary flex-1">
+                                            <a
+                                                className="flex-1 flex items-center justify-center gap-2 bg-primary-gradient text-white font-semibold py-2.5 px-4 rounded-xl hover:opacity-90 transition-opacity text-sm shadow-md"
+                                                target="_blank"
+                                                rel="noreferrer"
+                                                href={p.live_link}
+                                                onClick={(e) => e.stopPropagation()}
+                                            >
+                                                <span className="material-symbols-outlined text-base">visibility</span>
+                                                Live Demo
+                                            </a>
+                                        </div>
+
+                                        <a
+                                            className="flex-1 flex items-center justify-center gap-2 bg-surface border border-card text-gray-900 dark:text-white font-semibold py-2.5 px-4 rounded-xl hover:bg-gray-200 dark:hover:bg-white/10 transition-colors text-sm"
+                                            target="_blank"
+                                            rel="noreferrer"
+                                            href={p.repo_link}
+                                            onClick={(e) => e.stopPropagation()}
+                                        >
+                                            <span className="material-symbols-outlined text-base">code_blocks</span>
+                                            Code
+                                        </a>
+                                    </div>
+                                </div>
+                            </MotionArticle>
+                        );
+                    })}
                 </AnimatePresence>
             </MotionDiv>
 
