@@ -27,6 +27,7 @@
     overflow: hidden;
     pointer-events: none;
     z-index: 0;
+    contain: strict;
 }
 
 .dark .starfield {

@@ -5,61 +5,54 @@ import {
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
+// ----------- SCROLL ANIMATION VARIANTS -----------
+const scrollFadeUp = {
+    hidden: { opacity: 0, y: 40 },
+    visible: {
+        opacity: 1,
+        y: 0,
+        transition: { duration: 0.7, ease: "easeOut" }
+    }
+};
+
+const achievements = [
+    { number: "5+", label: "Projects", icon: <Briefcase className="h-5 w-5 text-primary" />, suffix: "" },
+    { number: "99", label: "Success", icon: <Target className="h-5 w-5 text-primary" />, suffix: "%" },
+    { number: "10", label: "Clients", icon: <User className="h-5 w-5 text-primary" />, suffix: "+" }
+];
+
+const techStack = [
+    { category: "Frontend", items: ["React", "Next.js", "TypeScript", "JavaScript", "HTML", "Tailwind"] },
+    { category: "Backend", items: ["Node.js", "Express", "Python", "Django"] },
+    { category: "Cloud", items: ["Vercel", "MongoDB", "NeonDB", "Redis", "Render", "Railway"] }
+];
+
+const features = [
+    "MERN-stack expertise", "Clean, maintainable code", "Performance optimization",
+    "Agile methodology", "24/7 support", "Timely delivery"
+];
+
+const socialLinks = [
+    { icon: <Github className="h-5 w-5" />, href: "https://www.github.com/Rakibislam22" },
+    { icon: <Linkedin className="h-5 w-5" />, href: "https://www.linkedin.com/in/md-rakib-ali-383947218/" },
+    { icon: <Twitter className="h-5 w-5" />, href: "https://x.com/rakibislam44" },
+    { icon: <Mail className="h-5 w-5" />, href: "mailto:mdrakibali.kcn@gmail.com" }
+];
+
+const tabContent = {
+    personal:
+        "I’m a mindset-driven developer who enjoys building impactful digital experiences. Outside of coding, I actively explore emerging technologies, contribute to open-source communities, and help fellow learners grow in their tech journey.",
+
+    professional:
+        "With hands-on experience in MERN-stack development, I've built and deployed multiple full-stack applications using modern frameworks. My strengths include crafting scalable architectures, optimizing performance, and developing clean, maintainable solutions.",
+
+    approach:
+        "I follow a clean-code philosophy grounded in clarity, testing, and user-focused design. My workflow embraces collaboration, agile practices, and continuous iteration to deliver reliable and high-quality software."
+};
+
 const About = () => {
     const [activeTab, setActiveTab] = useState('personal');
-    const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
     const [counter, setCounter] = useState(0);
-
-    // ----------- SCROLL ANIMATION VARIANTS -----------
-    const scrollFadeUp = {
-        hidden: { opacity: 0, y: 40 },
-        visible: {
-            opacity: 1,
-            y: 0,
-            transition: { duration: 0.7, ease: "easeOut" }
-        }
-    };
-
-    const achievements = [
-        { number: "5+", label: "Projects", icon: <Briefcase className="h-5 w-5 text-primary" />, suffix: "" },
-        { number: "99", label: "Success", icon: <Target className="h-5 w-5 text-primary" />, suffix: "%" },
-        { number: "10", label: "Clients", icon: <User className="h-5 w-5 text-primary" />, suffix: "+" }
-    ];
-
-    const techStack = [
-        { category: "Frontend", items: ["React", "Next.js", "TypeScript", "JavaScript", "HTML", "Tailwind"] },
-        { category: "Backend", items: ["Node.js", "Express", "Python", "Django"] },
-        { category: "Cloud", items: ["Vercel", "MongoDB", "NeonDB", "Redis", "Render", "Railway"] }
-    ];
-
-    const features = [
-        "MERN-stack expertise", "Clean, maintainable code", "Performance optimization",
-        "Agile methodology", "24/7 support", "Timely delivery"
-    ];
-
-    const socialLinks = [
-        { icon: <Github className="h-5 w-5" />, href: "https://www.github.com/Rakibislam22" },
-        { icon: <Linkedin className="h-5 w-5" />, href: "https://www.linkedin.com/in/md-rakib-ali-383947218/" },
-        { icon: <Twitter className="h-5 w-5" />, href: "https://x.com/rakibislam44" },
-        { icon: <Mail className="h-5 w-5" />, href: "mailto:mdrakibali.kcn@gmail.com" }
-    ];
-
-    const tabContent = {
-        personal:
-            "I’m a mindset-driven developer who enjoys building impactful digital experiences. Outside of coding, I actively explore emerging technologies, contribute to open-source communities, and help fellow learners grow in their tech journey.",
-
-        professional:
-            "With hands-on experience in MERN-stack development, I've built and deployed multiple full-stack applications using modern frameworks. My strengths include crafting scalable architectures, optimizing performance, and developing clean, maintainable solutions.",
-
-        approach:
-            "I follow a clean-code philosophy grounded in clarity, testing, and user-focused design. My workflow embraces collaboration, agile practices, and continuous iteration to deliver reliable and high-quality software."
-    };
-
-    useEffect(() => {
-        const handleMouseMove = e => setMousePosition({ x: e.clientX, y: e.clientY });
-        window.addEventListener('mousemove', handleMouseMove);
-        return () => window.removeEventListener('mousemove', handleMouseMove);
-    }, []);
 
     useEffect(() => {
         const interval = setInterval(() => setCounter(prev => (prev + 1) % 4), 2000);

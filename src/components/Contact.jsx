@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import emailjs from "emailjs-com";
 import { Mail, Phone, MapPin, Facebook, Youtube, Instagram, Send, Loader2, Github } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -18,32 +17,32 @@ export default function Contact() {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    const sendEmail = (e) => {
+    const sendEmail = async (e) => {
         e.preventDefault();
         setLoading(true);
         setStatus("");
 
-        emailjs
-            .send(
+        try {
+            const emailjsModule = await import("emailjs-com");
+            const emailjs = emailjsModule.default || emailjsModule;
+
+            await emailjs.send(
                 "service_ehf7j2a",
                 "template_b1fhrdi",
                 formData,
                 "8C2-PMaXJeATcg7Ir"
-            )
-            .then(
-                () => {
-                    setStatus("Message sent successfully!");
-                    setFormData({ name: "", email: "", message: "", time: new Date().toLocaleString() });
-                    setLoading(false);
-                    setTimeout(() => {
-                        setStatus("");
-                    }, 1500);
-                },
-                () => {
-                    setStatus("Failed to send message. Try again!");
-                    setLoading(false);
-                }
             );
+
+            setStatus("Message sent successfully!");
+            setFormData({ name: "", email: "", message: "", time: new Date().toLocaleString() });
+            setLoading(false);
+            setTimeout(() => {
+                setStatus("");
+            }, 1500);
+        } catch {
+            setStatus("Failed to send message. Try again!");
+            setLoading(false);
+        }
     };
 
     return (
