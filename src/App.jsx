@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import Header from "./components/Header";
 import About from "./components/About";
 import SkillsSection from "./components/SkillBar";
@@ -11,8 +11,9 @@ import { Footer } from "./components/Footer";
 import Navbar from "./components/Navbar";
 import StarfieldBackground from "./components/StarfieldBackground";
 import SmoothScroll from "./components/SmoothScroll";
-import OSPortfolioPopup from "./components/OSPortfolioPopup";
 import "./App.css";
+
+const OSPortfolioPopup = lazy(() => import("./components/OSPortfolioPopup"));
 
 export default function App() {
   return (
@@ -33,7 +34,9 @@ export default function App() {
           </main>
           <Footer />
         </div>
-        <OSPortfolioPopup />
+        <Suspense fallback={null}>
+          <OSPortfolioPopup />
+        </Suspense>
       </div>
     </SmoothScroll>
   );
