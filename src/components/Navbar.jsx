@@ -1,24 +1,15 @@
 // Updated Navbar: clearer, accessible GitHub icon SVG
 import { Menu, X, Moon, Sun } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export default function Navbar() {
     const [open, setOpen] = useState(false);
-    const [isDark, setIsDark] = useState(() =>
-        typeof window !== "undefined" && document.documentElement.classList.contains("dark")
-    );
-
-    useEffect(() => {
-        if (typeof window === "undefined") return;
+    const [isDark, setIsDark] = useState(() => {
+        if (typeof window === "undefined") return false;
         const saved = localStorage.getItem("theme");
-        if (saved === "dark") {
-            document.documentElement.classList.add("dark");
-            setIsDark(true);
-        } else if (saved === "light") {
-            document.documentElement.classList.remove("dark");
-            setIsDark(false);
-        }
-    }, []);
+        if (saved) return saved === "dark";
+        return document.documentElement.classList.contains("dark");
+    });
 
     const toggleTheme = () => {
         if (typeof window === "undefined") return;
@@ -40,7 +31,7 @@ export default function Navbar() {
         { label: "Projects", href: "#projects" },
         // { label: "Certifications", href: "#certifications" },
         // { label: "Competitive", href: "#competitive-programming" },
-        // { label: "Testimonials", href: "#testimonials" },
+        { label: "Testimonials", href: "#testimonials" },
         { label: "Contact", href: "#contact" },
     ];
 
