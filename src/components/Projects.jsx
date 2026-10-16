@@ -119,6 +119,21 @@ export default function Projects() {
             repo_link: "https://github.com/Rakibislam22/first-next-app",
         },
         {
+            title: "AmarPoster - AI Studio",
+            desc: "An AI-powered poster generation and campaign studio designed for authentic Bangladeshi political, cultural, and festive posters with automated canvas rendering.",
+            img: "amarposter.png",
+            categories: ["featured", "fullstack", "saas"],
+            featured: true,
+            tags: ["Next.js", "React", "TypeScript", "Node.js", "TailwindCSS", "Google Gemini AI", "Vercel"],
+            bullets: [
+                "Multi-slot portrait uploader with automated leader circle masking and layout positioning",
+                "Google Gemini AI slogan assistant for authentic rhyming Bengali campaign headlines",
+                "Resilient 5-tier direct high-resolution PNG print download engine without watermarks",
+            ],
+            live_link: "https://amarposter.vercel.app/",
+            repo_link: "https://github.com/Rakibislam22/my-poster",
+        },
+        {
             title: "Green Nest",
             desc: "A modern React + Firebase web app for plant lovers and botanical enthusiasts.",
             img: "c.png",
@@ -264,9 +279,8 @@ export default function Projects() {
                                 animate={{ opacity: 1, scale: 1 }}
                                 exit={{ opacity: 0, scale: 0.9 }}
                                 transition={{ duration: 0.35 }}
-                                className={`group relative bg-card border border-card p-5 sm:p-6 rounded-2xl flex flex-col justify-between transition-all duration-300 hover:shadow-2xl hover:border-primary/40 hover:-translate-y-1 overflow-hidden min-h-[460px] md:min-h-[480px] ${
-                                    isExpanded ? "ring-2 ring-primary/40" : ""
-                                }`}
+                                className={`group relative bg-card border border-card p-5 sm:p-6 rounded-2xl flex flex-col justify-between transition-all duration-300 hover:shadow-2xl hover:border-primary/40 hover:-translate-y-1 overflow-hidden min-h-[460px] md:min-h-[480px] ${isExpanded ? "ring-2 ring-primary/40" : ""
+                                    }`}
                             >
                                 {/* Top Thumbnail Image */}
                                 <div
