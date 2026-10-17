@@ -16,9 +16,9 @@ const scrollFadeUp = {
 };
 
 const achievements = [
-    { number: "5+", label: "Projects", icon: <Briefcase className="h-5 w-5 text-primary" />, suffix: "" },
+    { number: "10+", label: "Projects", icon: <Briefcase className="h-5 w-5 text-primary" />, suffix: "" },
     { number: "99", label: "Success", icon: <Target className="h-5 w-5 text-primary" />, suffix: "%" },
-    { number: "10", label: "Clients", icon: <User className="h-5 w-5 text-primary" />, suffix: "+" }
+    { number: "5", label: "Team Projects", icon: <User className="h-5 w-5 text-primary" />, suffix: "+" }
 ];
 
 const techStack = [
