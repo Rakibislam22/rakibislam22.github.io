@@ -89,19 +89,19 @@ export default function Projects() {
             repo_link: "https://github.com/Rakibislam22/Smart-bachelor-life",
         },
         {
-            title: "LearnSphere LMS",
-            desc: "A modern full-stack Learning Management System featuring sequential video lessons, server-side auto-graded quizzes, and a 4-tier role-based access control matrix.",
-            img: "learnsphere.png",
+            title: "Volunexa — Community Hub",
+            desc: "A full-stack community event and volunteer management platform with real-time slot tracking, role-based dashboards, and AI assistance.",
+            img: "volunexa.png",
             categories: ["featured", "fullstack", "saas"],
             featured: true,
-            tags: ["Next.js", "Strapi 5", "React", "Node.js", "TailwindCSS", "PostgreSQL", "RBAC", "Vercel"],
+            tags: ["Next.js", "React", "TypeScript", "Node.js", "Express.js", "MongoDB", "Socket.IO", "TailwindCSS", "Recharts", "Gemini AI"],
             bullets: [
-                "4-tier RBAC system (Admin, Content Manager, Instructor, Student) with secure route guards",
-                "Sequential course lesson player with persistent percentage progress tracking",
-                "Server-evaluated instant auto-graded MCQ quizzes and rich markdown tech blog engine",
+                "Organizer dashboard to create events, manage capacity, and track volunteer attendance",
+                "Volunteer portal with category/location filtering, slot validation, and registration management",
+                "Real-time updates via Socket.IO, role-based protection, and AI-assisted workflows",
             ],
-            live_link: "https://learn-sphere-pi.vercel.app/",
-            repo_link: "https://github.com/Rakibislam22/lms-frontend",
+            live_link: "https://volunexa.vercel.app/",
+            repo_link: "https://github.com/Rakibislam22/volunexa",
         },
         {
             title: "Movie Master Pro",
@@ -222,7 +222,22 @@ export default function Projects() {
             ],
             live_link: "https://smart-print-plus-client.vercel.app/",
             repo_link: "https://github.com/Rakibislam22/Smart-Print-Plus-Client",
-        }
+        },
+        {
+            title: "LearnSphere LMS",
+            desc: "A modern full-stack Learning Management System featuring sequential video lessons, server-side auto-graded quizzes, and a 4-tier role-based access control matrix.",
+            img: "learnsphere.png",
+            categories: ["fullstack", "saas"],
+            featured: false,
+            tags: ["Next.js", "Strapi 5", "React", "Node.js", "TailwindCSS", "PostgreSQL", "RBAC", "Vercel"],
+            bullets: [
+                "4-tier RBAC system (Admin, Content Manager, Instructor, Student) with secure route guards",
+                "Sequential course lesson player with persistent percentage progress tracking",
+                "Server-evaluated instant auto-graded MCQ quizzes and rich markdown tech blog engine",
+            ],
+            live_link: "https://learn-sphere-pi.vercel.app/",
+            repo_link: "https://github.com/Rakibislam22/lms-frontend",
+        },
     ];
 
     const filteredProjects = projects.filter((p) => {
